@@ -11,17 +11,32 @@ from trading.algorithm import TradingAlgorithm
 def main():
     """Main CLI entry point"""
     parser = argparse.ArgumentParser(
-        description='Simple Trading Algorithm using public market data APIs',
+        description='Sophisticated Trading Algorithm with Advanced Strategies and Risk Management',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python main.py --symbols AAPL,MSFT,GOOGL --strategy ma --capital 10000
-  python main.py --symbols TSLA --strategy rsi --period 6mo
-  python main.py --symbols SPY,QQQ --strategy momentum --capital 50000
-  python main.py --symbols AAPL --strategy mean_reversion --period 1y
-  python main.py --symbols MSFT,GOOGL --strategy breakout --capital 25000
-  python main.py --symbols TSLA --strategy multitimeframe --period 6mo
-  python main.py --symbols AAPL,MSFT,GOOGL --strategy enhanced --capital 100000
+  # Conservative approaches
+  python main.py --symbols AAPL,MSFT,GOOGL --strategy conservative --risk-profile very_low
+  python main.py --symbols TSLA --strategy balanced --risk-profile low
+
+  # Medium risk strategies
+  python main.py --symbols SPY,QQQ --strategy enhanced --risk-profile medium
+  python main.py --symbols AAPL --strategy ml_style --period 6mo
+
+  # High risk strategies
+  python main.py --symbols MSFT,GOOGL --strategy momentum --risk-profile high
+  python main.py --symbols TSLA --strategy breakout --risk-profile very_high
+
+  # Very high risk strategies
+  python main.py --symbols AAPL --strategy scalping --risk-profile very_high
+  python main.py --symbols MSFT --strategy contrarian --risk-profile very_high
+  python main.py --symbols GOOGL --strategy leveraged_momentum --risk-profile very_high
+
+  # Advanced strategies (require multiple symbols)
+  python main.py --symbols AAPL,MSFT,GOOGL,AMZN --strategy pairs_trading --risk-profile medium
+  python main.py --symbols AAPL,MSFT,GOOGL,JNJ --strategy statistical_arbitrage --risk-profile low
+  python main.py --symbols AAPL,MSFT,JNJ,XOM --strategy sector_rotation --risk-profile medium
+  python main.py --symbols AAPL,MSFT,GOOGL --strategy market_regime --risk-profile medium
         """
     )
 
@@ -34,9 +49,19 @@ Examples:
     parser.add_argument(
         '--strategy',
         choices=['ma', 'rsi', 'momentum', 'mean_reversion', 'breakout',
-                'multitimeframe', 'combined', 'enhanced', 'enhanced_combined'],
+                'multitimeframe', 'combined', 'enhanced', 'enhanced_combined',
+                'scalping', 'contrarian', 'leveraged_momentum', 'ml_style',
+                'conservative', 'balanced', 'pairs_trading', 'statistical_arbitrage',
+                'sector_rotation', 'market_regime'],
         default='enhanced',
         help='Trading strategy to use (default: enhanced)'
+    )
+
+    parser.add_argument(
+        '--risk-profile',
+        choices=['very_low', 'low', 'medium', 'high', 'very_high'],
+        default='medium',
+        help='Risk tolerance level (default: medium)'
     )
 
     parser.add_argument(
@@ -67,9 +92,10 @@ Examples:
         print("Error: No symbols provided")
         sys.exit(1)
 
-    print("=== Simple Trading Algorithm ===")
+    print("=== Sophisticated Trading Algorithm ===")
     print(f"Symbols: {', '.join(symbols)}")
     print(f"Strategy: {args.strategy}")
+    print(f"Risk Profile: {args.risk_profile}")
     print(f"Initial Capital: ${args.capital:.2f}")
     print(f"Data Period: {args.period}")
     print()
@@ -78,7 +104,8 @@ Examples:
     try:
         algorithm = TradingAlgorithm(
             initial_capital=args.capital,
-            strategy=args.strategy
+            strategy=args.strategy,
+            risk_profile=args.risk_profile
         )
 
         # Run backtest
@@ -105,6 +132,23 @@ Examples:
 
         if results['total_trades'] > 0:
             print(f"Profit/Loss: ${results['total_profit']:.2f}")
+
+        # Display advanced metrics if available
+        if 'sharpe_ratio' in results:
+            print()
+            print("=== Advanced Performance Metrics ===")
+            print(f"Sharpe Ratio: {results.get('sharpe_ratio', 0):.4f}")
+            print(f"Sortino Ratio: {results.get('sortino_ratio', 0):.4f}")
+            print(f"Calmar Ratio: {results.get('calmar_ratio', 0):.4f}")
+            print(f"Information Ratio: {results.get('information_ratio', 0):.4f}")
+            print(f"Alpha: {results.get('alpha', 0):.4f}")
+            print(f"Beta: {results.get('beta', 0):.4f}")
+            print(f"Volatility: {results.get('volatility', 0):.4f}")
+            print(f"VaR 95%: {results.get('var_95', 0):.4f}")
+            print(f"CVaR 95%: {results.get('cvar_95', 0):.4f}")
+            print(f"Recovery Factor: {results.get('recovery_factor', 0):.4f}")
+            print(f"Profit Factor: {results.get('profit_factor', 0):.4f}")
+            print(f"Expectancy: ${results.get('expectancy', 0):.2f}")
 
         print()
         print("=== Recent Portfolio Values ===")
