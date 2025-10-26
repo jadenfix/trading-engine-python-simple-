@@ -82,6 +82,12 @@ Examples:
         help='Output file for detailed results (CSV format)'
     )
 
+    parser.add_argument(
+        '--advanced-metrics',
+        action='store_true',
+        help='Display advanced performance metrics (Sharpe, Sortino, Calmar ratios)'
+    )
+
     args = parser.parse_args()
 
     # Parse symbols
@@ -149,6 +155,11 @@ Examples:
             print(f"Recovery Factor: {results.get('recovery_factor', 0):.4f}")
             print(f"Profit Factor: {results.get('profit_factor', 0):.4f}")
             print(f"Expectancy: ${results.get('expectancy', 0):.2f}")
+
+            # Performance rating
+            sharpe = results.get('sharpe_ratio', 0)
+            rating = "5-Star" if sharpe > 1.0 else "4-Star" if sharpe > 0.5 else "3-Star" if sharpe > 0 else "2-Star"
+            print(f"Performance Rating: {rating} (Sharpe: {sharpe:.4f})")
 
         print()
         print("=== Recent Portfolio Values ===")
