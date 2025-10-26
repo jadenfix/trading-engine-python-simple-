@@ -23,7 +23,7 @@ class BaseStrategy:
 class MovingAverageCrossover(BaseStrategy):
     """Moving Average Crossover Strategy"""
 
-    def __init__(self, short_window=10, long_window=50):
+    def __init__(self, short_window=5, long_window=20):
         """
         Initialize MA Crossover strategy
 
@@ -53,19 +53,17 @@ class MovingAverageCrossover(BaseStrategy):
 
         # Generate signals
         df['signal'] = 0
-        df['prev_ma_short'] = df['ma_short'].shift(1)
-        df['prev_ma_long'] = df['ma_long'].shift(1)
 
-        # Buy signal: short MA crosses above long MA
-        buy_condition = (df['prev_ma_short'] <= df['prev_ma_long']) & (df['ma_short'] > df['ma_long'])
+        # Buy signal: short MA above long MA (trend up)
+        buy_condition = df['ma_short'] > df['ma_long']
         df.loc[buy_condition, 'signal'] = 1
 
-        # Sell signal: short MA crosses below long MA
-        sell_condition = (df['prev_ma_short'] >= df['prev_ma_long']) & (df['ma_short'] < df['ma_long'])
+        # Sell signal: short MA below long MA (trend down)
+        sell_condition = df['ma_short'] < df['ma_long']
         df.loc[sell_condition, 'signal'] = -1
 
         # Clean up temporary columns
-        df = df.drop(['prev_ma_short', 'prev_ma_long'], axis=1)
+        df = df.drop(['ma_short', 'ma_long'], axis=1)
 
         return df
 
@@ -73,7 +71,7 @@ class MovingAverageCrossover(BaseStrategy):
 class RSIStrategy(BaseStrategy):
     """RSI (Relative Strength Index) Strategy"""
 
-    def __init__(self, period=14, overbought=70, oversold=30):
+    def __init__(self, period=14, overbought=65, oversold=35):
         """
         Initialize RSI strategy
 
@@ -118,14 +116,14 @@ class RSIStrategy(BaseStrategy):
 
         # Generate signals
         df['signal'] = 0
-
-        # Buy signal: RSI crosses above oversold level
         df['prev_rsi'] = df['rsi'].shift(1)
-        buy_condition = (df['prev_rsi'] <= self.oversold) & (df['rsi'] > self.oversold)
+
+        # Buy signal: RSI is oversold or crosses above oversold level
+        buy_condition = (df['rsi'] <= self.oversold) | ((df['prev_rsi'] <= self.oversold) & (df['rsi'] > self.oversold))
         df.loc[buy_condition, 'signal'] = 1
 
-        # Sell signal: RSI crosses below overbought level
-        sell_condition = (df['prev_rsi'] >= self.overbought) & (df['rsi'] < self.overbought)
+        # Sell signal: RSI is overbought or crosses below overbought level
+        sell_condition = (df['rsi'] >= self.overbought) | ((df['prev_rsi'] >= self.overbought) & (df['rsi'] < self.overbought))
         df.loc[sell_condition, 'signal'] = -1
 
         # Clean up temporary column
@@ -182,18 +180,16 @@ class CombinedStrategy(BaseStrategy):
 class MomentumStrategy(BaseStrategy):
     """Momentum-based trading strategy"""
 
-    def __init__(self, lookback_period=20, hold_period=5, top_percentile=0.3):
+    def __init__(self, lookback_period=10, hold_period=5, top_percentile=0.4):
         """
         Initialize momentum strategy
 
         Args:
             lookback_period (int): Period to calculate momentum
-            hold_period (int): How long to hold positions
             top_percentile (float): Top percentile to select for long positions
         """
         super().__init__("Momentum Strategy")
         self.lookback_period = lookback_period
-        self.hold_period = hold_period
         self.top_percentile = top_percentile
 
     def generate_signals(self, data):
@@ -217,14 +213,14 @@ class MomentumStrategy(BaseStrategy):
 
         # Generate signals based on momentum ranking
         df['signal'] = 0
-        df['momentum_rank'] = df['momentum'].rolling(window=self.lookback_period).rank(pct=True)
+        df['momentum_rank'] = df['momentum'].rolling(window=self.lookback_period, min_periods=5).rank(pct=True)
 
         # Long top performers
-        long_condition = df['momentum_rank'] > (1 - self.top_percentile)
+        long_condition = df['momentum'] > 0  # Simple positive momentum
         df.loc[long_condition, 'signal'] = 1
 
-        # Short bottom performers
-        short_condition = df['momentum_rank'] < self.top_percentile
+        # Short bottom performers (negative momentum)
+        short_condition = df['momentum'] < 0
         df.loc[short_condition, 'signal'] = -1
 
         # Clean up temporary columns
@@ -236,7 +232,7 @@ class MomentumStrategy(BaseStrategy):
 class MeanReversionStrategy(BaseStrategy):
     """Mean reversion trading strategy"""
 
-    def __init__(self, lookback_period=20, entry_threshold=2.0, exit_threshold=0.5):
+    def __init__(self, lookback_period=20, entry_threshold=1.5, exit_threshold=0.2):
         """
         Initialize mean reversion strategy
 
@@ -271,25 +267,17 @@ class MeanReversionStrategy(BaseStrategy):
 
         # Generate signals
         df['signal'] = 0
-        df['prev_z_score'] = df['z_score'].shift(1)
 
-        # Buy when price is significantly below mean (oversold)
-        buy_condition = (df['prev_z_score'] < -self.entry_threshold) & (df['z_score'] >= -self.entry_threshold)
+        # Buy when price is below mean (oversold) - more responsive
+        buy_condition = df['z_score'] < -self.entry_threshold
         df.loc[buy_condition, 'signal'] = 1
 
-        # Sell when price is significantly above mean (overbought)
-        sell_condition = (df['prev_z_score'] > self.entry_threshold) & (df['z_score'] <= self.entry_threshold)
+        # Sell when price is above mean (overbought)
+        sell_condition = df['z_score'] > self.entry_threshold
         df.loc[sell_condition, 'signal'] = -1
 
-        # Exit positions when back to mean
-        exit_long_condition = (df['prev_z_score'] < self.exit_threshold) & (df['z_score'] >= self.exit_threshold)
-        exit_short_condition = (df['prev_z_score'] > -self.exit_threshold) & (df['z_score'] <= -self.exit_threshold)
-
-        df.loc[exit_long_condition & (df['signal'] == 0), 'signal'] = -1  # Close long
-        df.loc[exit_short_condition & (df['signal'] == 0), 'signal'] = 1   # Close short
-
         # Clean up temporary columns
-        df = df.drop(['ma', 'std', 'z_score', 'prev_z_score'], axis=1)
+        df = df.drop(['ma', 'std', 'z_score'], axis=1)
 
         return df
 
@@ -297,7 +285,7 @@ class MeanReversionStrategy(BaseStrategy):
 class VolatilityBreakoutStrategy(BaseStrategy):
     """Volatility breakout strategy"""
 
-    def __init__(self, lookback_period=20, breakout_multiplier=1.5):
+    def __init__(self, lookback_period=10, breakout_multiplier=1.2):
         """
         Initialize volatility breakout strategy
 
@@ -335,12 +323,12 @@ class VolatilityBreakoutStrategy(BaseStrategy):
         # Generate signals
         df['signal'] = 0
 
-        # Buy breakout: close above upper level
-        buy_condition = df['Close'] > df['upper_breakout']
+        # Buy breakout: close above upper level or strong upward movement
+        buy_condition = (df['Close'] > df['upper_breakout']) | (df['Close'] > df['High'].shift(1))
         df.loc[buy_condition, 'signal'] = 1
 
-        # Sell breakout: close below lower level
-        sell_condition = df['Close'] < df['lower_breakout']
+        # Sell breakout: close below lower level or strong downward movement
+        sell_condition = (df['Close'] < df['lower_breakout']) | (df['Close'] < df['Low'].shift(1))
         df.loc[sell_condition, 'signal'] = -1
 
         # Clean up temporary columns
@@ -420,7 +408,7 @@ class MultiTimeframeStrategy(BaseStrategy):
 class EnhancedCombinedStrategy(BaseStrategy):
     """Enhanced combined strategy with multiple indicators and voting"""
 
-    def __init__(self, min_votes=2):
+    def __init__(self, min_votes=1):
         """
         Initialize combined strategy with voting system
 
