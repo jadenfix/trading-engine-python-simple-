@@ -887,7 +887,7 @@ class BalancedMultiStrategy(BaseStrategy):
 
         # Initialize component strategies
         self.trend_strategy = MovingAverageCrossover(short_window=10, long_window=30)
-        self.momentum_strategy = MomentumStrategy(lookback_period=15, top_percentile=0.35)
+        self.momentum_strategy = MomentumStrategy(lookback_period=15, momentum_threshold=0.015, volume_threshold=1.1)
         self.reversion_strategy = MeanReversionStrategy(lookback_period=25, entry_threshold=1.8, exit_threshold=0.3)
 
     def generate_signals(self, data):
