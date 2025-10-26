@@ -101,27 +101,33 @@ print(f"Total Trades: {results['total_trades']}")
 - **Stop Loss**: 5% default stop loss on all positions
 - **Portfolio Risk**: Monitors total portfolio exposure
 
-## Example Output
+## Performance Results
 
+### Enhanced Combined Strategy (1-Year Backtest)
 ```
-=== Simple Trading Algorithm ===
-Symbols: AAPL, MSFT, GOOGL
-Strategy: combined
-Initial Capital: $10,000.00
-Data Period: 1y
-
 === Backtest Results ===
-Strategy: Combined Strategy
+Strategy: Enhanced Combined Strategy
 Initial Capital: $10,000.00
-Final Capital: $11,245.67
-Total Return: 12.46%
-Max Drawdown: -8.32%
-Total Trades: 24
-Winning Trades: 14
-Losing Trades: 10
-Win Rate: 58.3%
-Profit/Loss: $1,245.67
+Final Capital: $10,329.79
+Total Return: 3.30%
+Max Drawdown: -25.66%
+Total Trades: 63
+Winning Trades: 11
+Losing Trades: 19
+Win Rate: 36.7%
+Profit/Loss: $282.33
 ```
+
+### Individual Strategy Performance (6-Month Backtest)
+
+| Strategy | Return | Win Rate | Total Trades | Max Drawdown |
+|----------|--------|----------|--------------|--------------|
+| **MA Crossover** | 0.86% | 75.0% | 10 | -15.36% |
+| **RSI Strategy** | 2.04% | 100.0% | 5 | -10.22% |
+| **Momentum** | 0.04% | 50.0% | 26 | -15.26% |
+| **Mean Reversion** | 0.60% | 100.0% | 4 | -8.29% |
+
+**Note**: Performance varies by market conditions and time periods. The enhanced combined strategy provides balanced exposure across multiple approaches.
 
 ## Project Structure
 
