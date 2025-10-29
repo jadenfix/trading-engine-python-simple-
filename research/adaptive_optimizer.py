@@ -491,4 +491,4 @@ if __name__ == "__main__":
     print(f"Best parameters: {result['best_parameters']}")
     print(f"Best score: {result['best_score']:.4f}")
 
-    print("\n✅ Adaptive optimization system ready!")
+    print("\nAdaptive optimization system ready!")

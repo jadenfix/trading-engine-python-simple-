@@ -13,6 +13,16 @@ from .strategies import (
     ConservativeTrendStrategy, BalancedMultiStrategy, PairsTradingStrategy,
     StatisticalArbitrageStrategy, SectorRotationStrategy, MarketRegimeStrategy
 )
+# Import research strategies
+try:
+    from research.strategies import (
+        FactorMomentumStrategy, CrossSectionalMomentumStrategy,
+        VolatilityRegimeStrategy as ResearchVolatilityRegimeStrategy,
+        LiquidityTimingStrategy, StatisticalProcessControlStrategy
+    )
+except ImportError:
+    # Research strategies not available
+    pass
 from .risk_manager import RiskManager, AdvancedRiskManager
 
 
@@ -78,15 +88,32 @@ class TradingAlgorithm:
             'sector_rotation': SectorRotationStrategy(),
             'market_regime': MarketRegimeStrategy()
         }
+
+        # Add research strategies if available
+        try:
+            strategies.update({
+                # Research strategies
+                'factor_momentum': FactorMomentumStrategy(),
+                'cross_sectional_momentum': CrossSectionalMomentumStrategy(),
+                'research_volatility_regime': ResearchVolatilityRegimeStrategy(),
+                'liquidity_timing': LiquidityTimingStrategy(),
+                'statistical_process_control': StatisticalProcessControlStrategy()
+            })
+        except NameError:
+            # Research strategies not available
+            pass
         return strategies.get(strategy_name.lower(), EnhancedCombinedStrategy())
 
     def _is_multi_symbol_strategy(self):
         """Check if current strategy is a multi-symbol strategy"""
         multi_symbol_strategies = [
             'pairs_trading', 'statistical_arbitrage',
-            'sector_rotation'
+            'sector_rotation', 'factor_momentum',
+            'cross_sectional_momentum', 'research_volatility_regime',
+            'liquidity_timing', 'statistical_process_control'
         ]
-        return self.strategy.name.lower().replace(' ', '_') in multi_symbol_strategies
+        strategy_name = self.strategy.name.lower().replace(' ', '_').replace('_strategy', '')
+        return strategy_name in multi_symbol_strategies
 
     def _process_multi_symbol(self, all_data, current_date, current_prices):
         """Process multi-symbol strategies"""
@@ -101,7 +128,13 @@ class TradingAlgorithm:
 
         # Generate signals for all symbols
         try:
-            signals_dict = self.strategy.generate_signals(current_data_dict)
+            # Check if strategy expects current_date parameter (research strategies)
+            import inspect
+            sig = inspect.signature(self.strategy.generate_signals)
+            if len(sig.parameters) > 1:  # More than just 'self'
+                signals_dict = self.strategy.generate_signals(current_data_dict, current_date)
+            else:
+                signals_dict = self.strategy.generate_signals(current_data_dict)
 
             # Process each symbol's signals
             for symbol, signal_data in signals_dict.items():

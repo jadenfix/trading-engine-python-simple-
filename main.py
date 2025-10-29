@@ -37,6 +37,11 @@ Examples:
   python main.py --symbols AAPL,MSFT,GOOGL,JNJ --strategy statistical_arbitrage --risk-profile low
   python main.py --symbols AAPL,MSFT,JNJ,XOM --strategy sector_rotation --risk-profile medium
   python main.py --symbols AAPL,MSFT,GOOGL --strategy market_regime --risk-profile medium
+
+  # Research strategies (emerging quantitative approaches)
+  python main.py --symbols AAPL,MSFT,GOOGL,AMZN,META --strategy factor_momentum --risk-profile medium
+  python main.py --symbols AAPL,MSFT,GOOGL,TSLA,NVDA --strategy cross_sectional_momentum --risk-profile medium
+  python main.py --symbols AAPL,MSFT,JNJ,XOM,WMT --strategy liquidity_timing --risk-profile low
         """
     )
 
@@ -52,7 +57,9 @@ Examples:
                 'multitimeframe', 'combined', 'enhanced', 'enhanced_combined',
                 'scalping', 'contrarian', 'leveraged_momentum', 'ml_style',
                 'conservative', 'balanced', 'pairs_trading', 'statistical_arbitrage',
-                'sector_rotation', 'market_regime'],
+                'sector_rotation', 'market_regime', 'factor_momentum',
+                'cross_sectional_momentum', 'research_volatility_regime',
+                'liquidity_timing', 'statistical_process_control'],
         default='enhanced',
         help='Trading strategy to use (default: enhanced)'
     )

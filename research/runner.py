@@ -307,7 +307,7 @@ class ResearchRunner:
         Returns:
             dict: Statistical process control results
         """
-        print(f"📊 Running Statistical Process Control Strategy...")
+        print(f"Running Statistical Process Control Strategy...")
 
         # Fetch data
         price_data = {}
@@ -367,7 +367,7 @@ class ResearchRunner:
         Returns:
             dict: Attention-driven strategy results
         """
-        print(f"🧠 Running Attention-Driven Strategy...")
+        print(f"Running Attention-Driven Strategy...")
 
         # Fetch data
         price_data = {}
@@ -423,7 +423,7 @@ class ResearchRunner:
         Returns:
             dict: Sentiment regime strategy results
         """
-        print(f"😊 Running Sentiment Regime Strategy...")
+        print(f"Running Sentiment Regime Strategy...")
 
         # Fetch data
         price_data = {}
@@ -479,7 +479,7 @@ class ResearchRunner:
         Returns:
             dict: Information theory strategy results
         """
-        print(f"📡 Running Information Theory Strategy...")
+        print(f"Running Information Theory Strategy...")
 
         # Fetch data
         price_data = {}
@@ -523,7 +523,7 @@ class ResearchRunner:
         Returns:
             dict: Complex systems strategy results
         """
-        print(f"🕸️ Running Complex Systems Strategy...")
+        print(f"Running Complex Systems Strategy...")
 
         # Fetch data
         price_data = {}
@@ -567,7 +567,7 @@ class ResearchRunner:
         Returns:
             dict: Fractal chaos strategy results
         """
-        print(f"🌪️ Running Fractal Chaos Strategy...")
+        print(f"Running Fractal Chaos Strategy...")
 
         # Fetch data
         price_data = {}
@@ -611,7 +611,7 @@ class ResearchRunner:
         Returns:
             dict: Quantum-inspired strategy results
         """
-        print(f"⚛️ Running Quantum-Inspired Strategy...")
+        print(f"Running Quantum-Inspired Strategy...")
 
         # Fetch data
         price_data = {}
@@ -780,14 +780,14 @@ if __name__ == "__main__":
     # Example usage
     symbols = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
 
-    print("🚀 Research Framework Demo")
+    print("Research Framework Demo")
     print("=" * 50)
 
     # Run comprehensive analysis
     results = run_research_analysis(symbols, 'comprehensive')
 
     if 'error' not in results:
-        print("\n📊 Analysis Summary:")
+        print("\nAnalysis Summary:")
         summary = results['analysis_summary']
         print(f"Total strategies tested: {summary['total_strategies_tested']}")
         print(f"Trading opportunities found: {summary['trading_opportunities_found']}")
@@ -796,7 +796,7 @@ if __name__ == "__main__":
         # Show best opportunities from each analysis
         for analysis_name, analysis_result in results.items():
             if analysis_name != 'analysis_summary' and 'error' not in analysis_result:
-                print(f"\n🔍 {analysis_name.replace('_', ' ').title()}:")
+                print(f"\n{analysis_name.replace('_', ' ').title()}:")
                 if analysis_name == 'correlation_analysis':
                     if 'arbitrage_opportunities' in analysis_result:
                         arb = analysis_result['arbitrage_opportunities']
@@ -829,4 +829,4 @@ if __name__ == "__main__":
                 elif analysis_name == 'quantum_inspired':
                     print(f"  Long signals: {len(analysis_result['long_signals'])}")
     else:
-        print(f"❌ Error: {results['error']}")
+        print(f"Error: {results['error']}")

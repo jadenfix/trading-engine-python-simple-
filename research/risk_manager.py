@@ -547,4 +547,4 @@ if __name__ == "__main__":
     print(f"Kelly Fraction: {kelly_result['kelly_fraction']:.1%}")
     print(f"Edge: {kelly_result['edge']:.4f}")
 
-    print("\n✅ Risk management system ready!")
+    print("\nRisk management system ready!")

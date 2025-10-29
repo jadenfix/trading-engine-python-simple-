@@ -2,49 +2,49 @@
 
 A comprehensive, production-ready quantitative trading research framework featuring unconventional strategies, advanced risk management, and cross-market signal analysis.
 
-## 🚀 Features
+## Features
 
-### 🎯 Unconventional Quantitative Strategies
-- **🧠 Attention-Driven Strategy**: Exploits investor attention patterns and market psychology
-- **😊 Sentiment Regime Strategy**: Uses behavioral biases (herding, anchoring) for regime detection
-- **📡 Information Theory Strategy**: Applies entropy measures and transfer entropy
-- **🕸️ Complex Systems Strategy**: Network centrality and contagion analysis
-- **🌪️ Fractal Chaos Strategy**: Fractal dimension and Lyapunov exponents
-- **⚛️ Quantum-Inspired Strategy**: Quantum mechanics concepts for market analysis
+### Unconventional Quantitative Strategies
+- **Attention-Driven Strategy**: Exploits investor attention patterns and market psychology
+- **Sentiment Regime Strategy**: Uses behavioral biases (herding, anchoring) for regime detection
+- **Information Theory Strategy**: Applies entropy measures and transfer entropy
+- **Complex Systems Strategy**: Network centrality and contagion analysis
+- **Fractal Chaos Strategy**: Fractal dimension and Lyapunov exponents
+- **Quantum-Inspired Strategy**: Quantum mechanics concepts for market analysis
 
-### 🎲 Advanced Ensemble System
+### Advanced Ensemble System
 - **Regime-Dependent Allocation**: Automatically adapts to market volatility, trend, and sentiment regimes
 - **Risk Parity**: Equal risk contribution across strategies
 - **Performance Momentum**: Boosts allocation to recently successful strategies
 - **Dynamic Rebalancing**: Daily regime-based portfolio reweighting
 
-### 📊 Comprehensive Backtesting Engine
+### Comprehensive Backtesting Engine
 - **Realistic Transaction Costs**: Commission and multiple slippage models
 - **Position Sizing**: Risk-adjusted position sizing with constraints
 - **Performance Metrics**: Sharpe ratio, Sortino, Calmar, VaR, CVaR, drawdown analysis
 - **Walk-Forward Optimization**: Out-of-sample testing and parameter stability
 
-### 🛡️ Advanced Risk Management
+### Advanced Risk Management
 - **CVaR (Conditional VaR)**: Expected shortfall under extreme scenarios
 - **Drawdown Control**: Maximum drawdown limits with recovery tracking
 - **Kelly Criterion**: Optimal position sizing based on win probability
 - **Stress Testing**: Portfolio testing under various market scenarios
 - **Dynamic Risk Budgeting**: Risk parity allocation across strategies
 
-### 🌍 Cross-Market Signal Analysis
+### Cross-Market Signal Analysis
 - **Inter-Market Correlations**: Relationships between equities, FX, commodities, crypto
 - **Lead-Lag Analysis**: Detect which markets lead/follow others
 - **FX Impact Analysis**: Currency movement effects on equity markets
 - **Commodity Influence**: Sector impacts from commodity prices
 - **Global Economic Signals**: GDP, inflation, interest rates
 
-### 🧠 Adaptive Parameter Optimization
+### Adaptive Parameter Optimization
 - **Bayesian Optimization**: Efficient parameter search using Gaussian processes
 - **Walk-Forward Analysis**: Out-of-sample parameter validation
 - **Regime-Adaptive Parameters**: Different parameters for different market conditions
 - **Genetic Algorithms**: Evolutionary parameter optimization
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 research/
@@ -65,9 +65,9 @@ trading/
 ├── backtesting.py                # Basic backtesting
 ├── data_fetcher.py               # Market data fetching
 └── risk_manager.py               # Basic risk management
-```
+   ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Installation
 
@@ -159,7 +159,7 @@ best_params = optimize_strategy_parameters(
 )
 ```
 
-## 📊 Available Strategies
+## Available Strategies
 
 ### Traditional Strategies
 - **Factor Momentum**: Cross-sectional factor analysis
@@ -176,7 +176,7 @@ best_params = optimize_strategy_parameters(
 - **Fractal Chaos**: Fractal geometry and chaos theory
 - **Quantum-Inspired**: Quantum mechanics market analogies
 
-## 🎯 Strategy Analysis Types
+## Strategy Analysis Types
 
 ```python
 # Individual strategy analysis
@@ -199,7 +199,7 @@ run_research_analysis(symbols, 'comprehensive')    # All strategies
 run_research_analysis(symbols, 'correlation')      # Correlation analysis only
 ```
 
-## 📈 Performance Metrics
+## Performance Metrics
 
 The framework provides comprehensive performance analysis:
 
@@ -209,7 +209,7 @@ The framework provides comprehensive performance analysis:
 - **Stress Testing**: Portfolio performance under various scenarios
 - **Strategy Attribution**: Individual strategy contribution analysis
 
-## 🔧 Configuration
+## Configuration
 
 ### Backtesting Parameters
 ```python
@@ -240,7 +240,7 @@ fractal_params = {
 }
 ```
 
-## 🚦 Risk Management Features
+## Risk Management Features
 
 ### Portfolio-Level Controls
 - Maximum drawdown limits
@@ -254,7 +254,7 @@ fractal_params = {
 - Dynamic position sizing
 - Regime-based risk adjustments
 
-## 🌍 Cross-Market Integration
+## Cross-Market Integration
 
 ### Market Data Requirements
 ```python
@@ -272,7 +272,7 @@ analyzer.add_market_data('crypto', 'BTC-USD', bitcoin_data)
 - **Crypto Correlations**: Digital asset relationships with traditional markets
 - **Economic Indicators**: GDP, inflation, rates impact on equity markets
 
-## 🧠 Adaptive Optimization
+## Adaptive Optimization
 
 ### Bayesian Optimization
 ```python
@@ -299,7 +299,7 @@ wf_optimizer = WalkForwardOptimizer(
 results = wf_optimizer.optimize_strategy(strategy_class, param_bounds, price_data)
 ```
 
-## 📊 Results Interpretation
+## Results Interpretation
 
 ### Strategy Signals
 - **1**: Strong buy signal
@@ -317,7 +317,7 @@ results = wf_optimizer.optimize_strategy(strategy_class, param_bounds, price_dat
 - **Kelly Fraction**: Optimal position size
 - **Drawdown**: Peak-to-trough decline
 
-## 🔄 Development Workflow
+## Development Workflow
 
 1. **Research**: Analyze new strategies using the framework
 2. **Backtest**: Test strategies with realistic costs and slippage
@@ -326,7 +326,7 @@ results = wf_optimizer.optimize_strategy(strategy_class, param_bounds, price_dat
 5. **Ensemble**: Combine strategies with regime-based allocation
 6. **Deploy**: Implement live trading with risk limits
 
-## 📈 Example Results
+## Example Results
 
 ```python
 # Comprehensive analysis results
@@ -354,7 +354,7 @@ results = wf_optimizer.optimize_strategy(strategy_class, param_bounds, price_dat
 }
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -362,14 +362,14 @@ results = wf_optimizer.optimize_strategy(strategy_class, param_bounds, price_dat
 4. Add comprehensive tests
 5. Submit a pull request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This framework is for research and educational purposes. Not intended for live trading without thorough validation and risk management. Past performance does not guarantee future results.
 
 ---
 
-**Ready to revolutionize your quantitative trading approach? 🚀**
+**Ready to revolutionize your quantitative trading approach?**

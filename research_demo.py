@@ -28,39 +28,39 @@ def print_header(title):
 
 def demo_unconventional_strategies():
     """Demonstrate unconventional strategy capabilities"""
-    print_header("🚀 UNCONVENTIONAL QUANTITATIVE STRATEGIES DEMO")
+    print_header("UNCONVENTIONAL QUANTITATIVE STRATEGIES DEMO")
 
     symbols = ['AAPL', 'MSFT', 'GOOGL', 'TSLA']
 
     print(f"Testing strategies on symbols: {symbols}")
     print("\nAvailable unconventional strategies:")
-    print("• 🧠 Attention-Driven Strategy (behavioral finance)")
-    print("• 😊 Sentiment Regime Strategy (market psychology)")
-    print("• 📡 Information Theory Strategy (complexity measures)")
-    print("• 🕸️ Complex Systems Strategy (network effects)")
-    print("• 🌪️ Fractal Chaos Strategy (fractal geometry)")
-    print("• ⚛️ Quantum-Inspired Strategy (quantum mechanics concepts)")
+    print("• Attention-Driven Strategy (behavioral finance)")
+    print("• Sentiment Regime Strategy (market psychology)")
+    print("• Information Theory Strategy (complexity measures)")
+    print("• Complex Systems Strategy (network effects)")
+    print("• Fractal Chaos Strategy (fractal geometry)")
+    print("• Quantum-Inspired Strategy (quantum mechanics concepts)")
 
     # Test each strategy
     strategies = ['attention', 'sentiment', 'info_theory', 'complex_systems', 'fractal_chaos', 'quantum']
 
     for strategy in strategies:
-        print(f"\n🔬 Testing {strategy.replace('_', ' ').title()} Strategy...")
+        print(f"\nTesting {strategy.replace('_', ' ').title()} Strategy...")
         try:
             result = run_research_analysis(symbols[:2], strategy)  # Use fewer symbols for speed
             if 'error' not in result:
                 long_signals = len(result.get('long_signals', []))
                 short_signals = len(result.get('short_signals', []))
-                print(f"  ✅ Success! Long signals: {long_signals}, Short signals: {short_signals}")
+                print(f"  Success! Long signals: {long_signals}, Short signals: {short_signals}")
             else:
-                print(f"  ❌ Error: {result['error']}")
+                print(f"  Error: {result['error']}")
         except Exception as e:
-            print(f"  ❌ Exception: {e}")
+            print(f"  Exception: {e}")
 
 
 def demo_strategy_ensemble():
     """Demonstrate the strategy ensemble system"""
-    print_header("🎯 STRATEGY ENSEMBLE SYSTEM DEMO")
+    print_header("STRATEGY ENSEMBLE SYSTEM DEMO")
 
     try:
         # Create ensemble
@@ -82,15 +82,15 @@ def demo_strategy_ensemble():
         for strategy, weight in summary['current_weights'].items():
             print(".1%")
 
-        print("\n✅ Ensemble system ready for dynamic allocation!")
+        print("\nEnsemble system ready for dynamic allocation!")
 
     except Exception as e:
-        print(f"❌ Ensemble demo failed: {e}")
+        print(f"Ensemble demo failed: {e}")
 
 
 def demo_backtesting_framework():
     """Demonstrate the backtesting framework"""
-    print_header("📊 ADVANCED BACKTESTING FRAMEWORK DEMO")
+    print_header("ADVANCED BACKTESTING FRAMEWORK DEMO")
 
     try:
         # Initialize backtesting engine
@@ -108,16 +108,16 @@ def demo_backtesting_framework():
         print(f"• Max Position Size: {backtest_engine.max_position_size:.1%}")
         print(f"• Risk-Free Rate: {backtest_engine.risk_free_rate:.1%}")
 
-        print("\n✅ Backtesting engine initialized successfully!")
+        print("\nBacktesting engine initialized successfully!")
         print("Ready for realistic strategy evaluation with transaction costs and slippage.")
 
     except Exception as e:
-        print(f"❌ Backtesting demo failed: {e}")
+        print(f"Backtesting demo failed: {e}")
 
 
 def demo_comprehensive_analysis():
     """Demonstrate comprehensive analysis capabilities"""
-    print_header("🔬 COMPREHENSIVE RESEARCH ANALYSIS DEMO")
+    print_header("COMPREHENSIVE RESEARCH ANALYSIS DEMO")
 
     symbols = ['AAPL', 'MSFT', 'GOOGL']
 
@@ -127,7 +127,7 @@ def demo_comprehensive_analysis():
         results = run_research_analysis(symbols, 'comprehensive')
 
         if 'error' not in results:
-            print("\n📈 Analysis Summary:")
+            print("\nAnalysis Summary:")
 
             # Count total signals across all strategies
             total_long = 0
@@ -146,79 +146,79 @@ def demo_comprehensive_analysis():
             print(f"• Total Long Signals: {total_long}")
             print(f"• Total Short Signals: {total_short}")
 
-            print("\n🔍 Key Findings:")
+            print("\nKey Findings:")
             for analysis_name, analysis_result in results.items():
                 if analysis_name != 'analysis_summary' and 'error' not in analysis_result:
                     status = "Active" if ('long_signals' in analysis_result and len(analysis_result['long_signals']) > 0) or ('short_signals' in analysis_result and len(analysis_result['short_signals']) > 0) else "Neutral"
                     print(f"• {analysis_name.replace('_', ' ').title()}: {status}")
 
         else:
-            print(f"❌ Analysis failed: {results['error']}")
+            print(f"Analysis failed: {results['error']}")
 
     except Exception as e:
-        print(f"❌ Comprehensive analysis failed: {e}")
+        print(f"Comprehensive analysis failed: {e}")
 
 
 def demo_research_capabilities():
     """Showcase all research capabilities"""
-    print_header("🧪 COMPLETE RESEARCH FRAMEWORK CAPABILITIES")
+    print_header("COMPLETE RESEARCH FRAMEWORK CAPABILITIES")
 
     capabilities = [
-        "✅ Behavioral Finance Strategies",
+        "Behavioral Finance Strategies",
         "  - Investor attention modeling",
         "  - Market sentiment regimes",
         "  - Herding behavior detection",
         "  - Anchoring bias exploitation",
 
-        "✅ Information Theory Approaches",
+        "Information Theory Approaches",
         "  - Approximate entropy measures",
         "  - Transfer entropy analysis",
         "  - Mutual information signals",
         "  - Complexity-based trading",
 
-        "✅ Complex Systems Methods",
+        "Complex Systems Methods",
         "  - Network centrality analysis",
         "  - Contagion effect detection",
         "  - Synchronization patterns",
         "  - Systemic risk indicators",
 
-        "✅ Chaos Theory Applications",
+        "Chaos Theory Applications",
         "  - Fractal dimension analysis",
         "  - Hurst exponent calculations",
         "  - Lyapunov exponent measures",
         "  - Non-linear dynamics",
 
-        "✅ Quantum-Inspired Concepts",
+        "Quantum-Inspired Concepts",
         "  - Market state superposition",
         "  - Quantum coherence measures",
         "  - Wave function probabilities",
         "  - Entanglement correlations",
 
-        "✅ Advanced Risk Management",
+        "Advanced Risk Management",
         "  - CVaR optimization",
         "  - Drawdown control",
         "  - Kelly criterion sizing",
         "  - Portfolio stress testing",
 
-        "✅ Ensemble Allocation Systems",
+        "Ensemble Allocation Systems",
         "  - Regime-dependent weighting",
         "  - Risk parity allocation",
         "  - Performance momentum",
         "  - Dynamic rebalancing",
 
-        "✅ Comprehensive Backtesting",
+        "Comprehensive Backtesting",
         "  - Realistic transaction costs",
         "  - Multiple slippage models",
         "  - Position size optimization",
         "  - Performance attribution",
 
-        "✅ Correlation Analysis Tools",
+        "Correlation Analysis Tools",
         "  - Cross-sectional correlations",
         "  - Statistical arbitrage pairs",
         "  - Network correlation clusters",
         "  - Seasonal pattern detection",
 
-        "✅ Factor Momentum Models",
+        "Factor Momentum Models",
         "  - Multi-factor exposure analysis",
         "  - Factor momentum timing",
         "  - Cross-sectional factor ranks",
@@ -231,7 +231,7 @@ def demo_research_capabilities():
 
 def main():
     """Main demo function"""
-    print("🎯 ADVANCED QUANTITATIVE RESEARCH FRAMEWORK")
+    print("ADVANCED QUANTITATIVE RESEARCH FRAMEWORK")
     print("Enhanced with Unconventional Strategies & Alpha Generation")
     print(f"Demo started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
@@ -242,7 +242,7 @@ def main():
     demo_comprehensive_analysis()
     demo_research_capabilities()
 
-    print_header("🎉 DEMO COMPLETED")
+    print_header("DEMO COMPLETED")
     print("Your research framework now includes:")
     print("• 6+ unconventional quantitative strategies")
     print("• Advanced ensemble allocation system")

@@ -592,5 +592,5 @@ if __name__ == "__main__":
     print("• Commodity influence analysis")
     print("• Global economic signal generation")
 
-    print("\n✅ Cross-market signal system ready!")
+    print("\nCross-market signal system ready!")
     print("Integrates signals across equities, FX, commodities, crypto, and economic indicators.")
