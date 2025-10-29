@@ -1,381 +1,375 @@
-# Sophisticated Trading Algorithm Engine
+# Advanced Quantitative Research Framework
 
-A comprehensive algorithmic trading system that uses public market data APIs to implement advanced trading strategies with sophisticated risk management. Features multiple risk-based strategy profiles, advanced risk management, and comprehensive backtesting capabilities. Perfect for learning algorithmic trading concepts and testing advanced strategies with different risk tolerances.
+A comprehensive, production-ready quantitative trading research framework featuring unconventional strategies, advanced risk management, and cross-market signal analysis.
 
-## Features
+## 🚀 Features
 
-- **Sophisticated Strategies**: 19+ advanced strategies including scalping, contrarian, leveraged momentum, ML-style pattern recognition, pairs trading, statistical arbitrage, sector rotation, and adaptive market regime strategies
-- **Risk-Based Profiles**: 5 risk tolerance levels (very low to very high) with automatic parameter adjustment
-- **Advanced Risk Management**: Dynamic position sizing, volatility filtering, portfolio heat monitoring, and risk-adjusted returns
-- **Public API Integration**: Uses Yahoo Finance for free market data with multiple timeframes
-- **Comprehensive Backtesting**: Historical performance analysis with risk-adjusted metrics
-- **Modular Design**: Plugin architecture for easy strategy and risk profile customization
+### 🎯 Unconventional Quantitative Strategies
+- **🧠 Attention-Driven Strategy**: Exploits investor attention patterns and market psychology
+- **😊 Sentiment Regime Strategy**: Uses behavioral biases (herding, anchoring) for regime detection
+- **📡 Information Theory Strategy**: Applies entropy measures and transfer entropy
+- **🕸️ Complex Systems Strategy**: Network centrality and contagion analysis
+- **🌪️ Fractal Chaos Strategy**: Fractal dimension and Lyapunov exponents
+- **⚛️ Quantum-Inspired Strategy**: Quantum mechanics concepts for market analysis
 
-### Risk Profiles
+### 🎲 Advanced Ensemble System
+- **Regime-Dependent Allocation**: Automatically adapts to market volatility, trend, and sentiment regimes
+- **Risk Parity**: Equal risk contribution across strategies
+- **Performance Momentum**: Boosts allocation to recently successful strategies
+- **Dynamic Rebalancing**: Daily regime-based portfolio reweighting
 
-- **Very Low Risk**: 0.5% max risk per trade, 2% stop loss, conservative position sizing
-- **Low Risk**: 1% max risk per trade, 3% stop loss, moderate position sizing
-- **Medium Risk**: 2% max risk per trade, 5% stop loss, balanced approach (default)
-- **High Risk**: 5% max risk per trade, 8% stop loss, aggressive position sizing
-- **Very High Risk**: 10% max risk per trade, 12% stop loss, maximum position sizing
+### 📊 Comprehensive Backtesting Engine
+- **Realistic Transaction Costs**: Commission and multiple slippage models
+- **Position Sizing**: Risk-adjusted position sizing with constraints
+- **Performance Metrics**: Sharpe ratio, Sortino, Calmar, VaR, CVaR, drawdown analysis
+- **Walk-Forward Optimization**: Out-of-sample testing and parameter stability
 
-## Installation
+### 🛡️ Advanced Risk Management
+- **CVaR (Conditional VaR)**: Expected shortfall under extreme scenarios
+- **Drawdown Control**: Maximum drawdown limits with recovery tracking
+- **Kelly Criterion**: Optimal position sizing based on win probability
+- **Stress Testing**: Portfolio testing under various market scenarios
+- **Dynamic Risk Budgeting**: Risk parity allocation across strategies
 
-1. Clone or download the project
-2. Set up the virtual environment:
-   ```bash
-   python3 -m venv trading_env
-   source trading_env/bin/activate  # On Windows: trading_env\Scripts\activate
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 🌍 Cross-Market Signal Analysis
+- **Inter-Market Correlations**: Relationships between equities, FX, commodities, crypto
+- **Lead-Lag Analysis**: Detect which markets lead/follow others
+- **FX Impact Analysis**: Currency movement effects on equity markets
+- **Commodity Influence**: Sector impacts from commodity prices
+- **Global Economic Signals**: GDP, inflation, interest rates
 
-## Quick Start
+### 🧠 Adaptive Parameter Optimization
+- **Bayesian Optimization**: Efficient parameter search using Gaussian processes
+- **Walk-Forward Analysis**: Out-of-sample parameter validation
+- **Regime-Adaptive Parameters**: Different parameters for different market conditions
+- **Genetic Algorithms**: Evolutionary parameter optimization
 
-### Command Line Usage
+## 📁 Project Structure
 
-Run a backtest with default settings:
+```
+research/
+├── strategies.py                 # Original quantitative strategies
+├── unconventional_strategies.py  # New behavioral & complex systems strategies
+├── runner.py                     # Main research framework runner
+├── backtesting_engine.py         # Advanced backtesting with costs
+├── strategy_ensemble.py          # Multi-strategy ensemble system
+├── risk_manager.py               # Advanced risk management
+├── cross_market_signals.py       # Cross-market analysis
+├── adaptive_optimizer.py         # Parameter optimization
+├── correlation_analyzer.py       # Correlation analysis tools
+└── __init__.py
+
+trading/
+├── strategies.py                 # Base strategy classes
+├── algorithm.py                  # Trading algorithm implementation
+├── backtesting.py                # Basic backtesting
+├── data_fetcher.py               # Market data fetching
+└── risk_manager.py               # Basic risk management
+```
+
+## 🚀 Quick Start
+
+### 1. Installation
+
 ```bash
-python main.py --symbols AAPL,MSFT --strategy combined --capital 10000
+# Clone the repository
+git clone <repository-url>
+cd advanced-quant-research
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Activate virtual environment (recommended)
+python -m venv trading_env
+source trading_env/bin/activate  # On Windows: trading_env\Scripts\activate
+pip install -r requirements.txt
 ```
 
-**Note**: Advanced strategies like `pairs_trading`, `statistical_arbitrage`, `sector_rotation`, and `market_regime` require multiple symbols (3-10 recommended) to work effectively, as they analyze relationships between different stocks.
-
-Available options:
-- `--symbols`: Stock symbols (comma-separated)
-- `--strategy`: Trading strategy (19+ options including `scalping`, `contrarian`, `leveraged_momentum`, `ml_style`, `conservative`, `balanced`, `pairs_trading`, `statistical_arbitrage`, `sector_rotation`, `market_regime`)
-- `--risk-profile`: Risk tolerance (`very_low`, `low`, `medium`, `high`, `very_high`)
-- `--capital`: Initial capital for backtest
-- `--period`: Historical data period
-- `--output`: Save detailed results to CSV
-
-### Python API Usage
+### 2. Basic Usage
 
 ```python
-from trading.algorithm import TradingAlgorithm
+from research.runner import run_research_analysis
 
-# Create algorithm with different risk profiles and strategies
-conservative = TradingAlgorithm(initial_capital=50000, strategy='conservative', risk_profile='low')
-pairs_trader = TradingAlgorithm(initial_capital=100000, strategy='pairs_trading', risk_profile='medium')
-sector_rotator = TradingAlgorithm(initial_capital=75000, strategy='sector_rotation', risk_profile='medium')
+# Run comprehensive analysis on major tech stocks
+symbols = ['AAPL', 'MSFT', 'GOOGL', 'TSLA']
+results = run_research_analysis(symbols, 'comprehensive')
 
-# Run backtests with different strategies
-# Single symbol strategies
-symbols_single = ['AAPL']
-results_conservative = conservative.run_backtest(symbols_single, period='6mo')
-
-# Multi-symbol strategies (recommended for pairs trading, statistical arbitrage, sector rotation)
-symbols_multi = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'JNJ', 'XOM']
-results_pairs = pairs_trader.run_backtest(symbols_multi, period='1y')
-results_sector = sector_rotator.run_backtest(symbols_multi, period='1y')
-
-# Display results
-print("Conservative Strategy Results:")
-print(f"Total Return: {results_conservative['total_return']:.2f}%")
-print(f"Win Rate: {results_conservative['win_rate']:.1f}%")
-
-print("\nPairs Trading Results:")
-print(f"Total Return: {results_pairs['total_return']:.2f}%")
-print(f"Win Rate: {results_pairs['win_rate']:.1f}%")
-
-print("\nSector Rotation Results:")
-print(f"Total Return: {results_sector['total_return']:.2f}%")
-print(f"Win Rate: {results_sector['win_rate']:.1f}%")
+# Analyze with specific unconventional strategy
+attention_results = run_research_analysis(symbols, 'attention')
+sentiment_results = run_research_analysis(symbols, 'sentiment')
+fractal_results = run_research_analysis(symbols, 'fractal_chaos')
 ```
 
-## Trading Strategies by Risk Level
+### 3. Advanced Ensemble Trading
 
-### Very High Risk Strategies
-**WARNING: These strategies can lead to significant losses!**
-
-1. **High-Frequency Scalping**
-   - **Risk Level**: Very High
-   - **Logic**: Ultra-short-term trades based on 3-8 period price movements
-   - **Best for**: Very active markets with high volatility
-   - **Typical Return**: High frequency, small wins/losses
-
-2. **Contrarian Reversal**
-   - **Risk Level**: Very High
-   - **Logic**: Bets against strong trends expecting reversals
-   - **Best for**: Overextended markets, major turning points
-   - **Typical Return**: High reward potential, high risk
-
-3. **Leveraged Momentum**
-   - **Risk Level**: Very High
-   - **Logic**: Amplified momentum signals with volume confirmation
-   - **Best for**: Strong trending markets
-   - **Typical Return**: High potential returns, high drawdown risk
-
-### Advanced Quantitative Strategies
-
-4. **Pairs Trading**
-   - **Risk Level**: Medium
-   - **Logic**: Statistical arbitrage using cointegrated pairs, trades spread deviations
-   - **Best for**: Sideways or mean-reverting markets
-   - **Typical Return**: Consistent small profits, low correlation to market
-
-5. **Statistical Arbitrage**
-   - **Risk Level**: Medium-Low
-   - **Logic**: Multiple pairs trading with portfolio optimization
-   - **Best for**: Diversified mean reversion opportunities
-   - **Typical Return**: Stable returns with low volatility
-
-6. **Sector Rotation**
-   - **Risk Level**: Medium
-   - **Logic**: Rotates capital to strongest performing sectors
-   - **Best for**: Sector-driven market environments
-   - **Typical Return**: Good in rotating markets
-
-7. **Market Regime Adaptive**
-   - **Risk Level**: Medium
-   - **Logic**: Automatically detects market regime and selects optimal strategy
-   - **Best for**: All market conditions with adaptive approach
-   - **Typical Return**: Consistent performance across regimes
-
-### High Risk Strategies
-
-8. **Volatility Breakout**
-   - **Risk Level**: High
-   - **Logic**: Trades breakouts from volatility-based price channels
-   - **Best for**: High volatility periods
-   - **Typical Return**: Good in trending markets
-
-9. **Machine Learning Style**
-   - **Risk Level**: High
-   - **Logic**: Multi-factor pattern recognition using technical indicators
-   - **Best for**: Complex market patterns
-   - **Typical Return**: Adaptive to various conditions
-
-### Medium Risk Strategies (Recommended)
-
-10. **Balanced Multi-Strategy**
-   - **Risk Level**: Medium
-   - **Logic**: Weighted combination of trend, momentum, and mean reversion
-   - **Best for**: Most market conditions
-   - **Typical Return**: Stable, balanced performance
-
-11. **Enhanced Combined Strategy**
-   - **Risk Level**: Medium
-   - **Logic**: Voting system across multiple strategies
-   - **Best for**: Risk reduction through consensus
-   - **Typical Return**: Consistent, moderate returns
-
-12. **Multi-Timeframe Strategy**
-   - **Risk Level**: Medium
-   - **Logic**: Combines short and long-term signals
-   - **Best for**: Trend confirmation
-   - **Typical Return**: Reduced false signals
-
-### Low Risk Strategies
-
-13. **Conservative Trend Following**
-   - **Risk Level**: Low
-   - **Logic**: Long-term trends with strong confirmation
-   - **Best for**: Stable trending markets
-   - **Typical Return**: Lower but more consistent
-
-14. **Mean Reversion**
-    - **Risk Level**: Low-Medium
-    - **Logic**: Buys oversold, sells overbought based on Bollinger Bands
-    - **Best for**: Sideways/choppy markets
-    - **Typical Return**: Good in ranging markets
-
-### Classic Strategies
-
-15. **Moving Average Crossover**
-    - **Risk Level**: Low-Medium
-    - **Logic**: Trend following based on MA crossovers
-    - **Best for**: Clear trending markets
-    - **Typical Return**: Reliable trend capture
-
-16. **RSI Strategy**
-    - **Risk Level**: Low-Medium
-    - **Logic**: Mean reversion based on RSI overbought/oversold
-    - **Best for**: Oscillating markets
-    - **Typical Return**: Good in sideways markets
-
-17. **Momentum Strategy**
-    - **Risk Level**: Medium
-    - **Logic**: Follows strongest performing stocks
-    - **Best for**: Strong bull markets
-    - **Typical Return**: Good in trending up markets
-
-## Advanced Risk Management
-
-### Risk Profile System
-The algorithm automatically adjusts all risk parameters based on your chosen risk tolerance:
-
-| Risk Level | Max Risk/Trade | Stop Loss | Position Size | Best For |
-|------------|----------------|-----------|---------------|----------|
-| **Very Low** | 0.5% | 2% | 5% | Conservative investors |
-| **Low** | 1% | 3% | 8% | Risk-averse traders |
-| **Medium** | 2% | 5% | 15% | Balanced approach |
-| **High** | 5% | 8% | 25% | Aggressive traders |
-| **Very High** | 10% | 12% | 40% | High-risk tolerance |
-
-### Risk Features
-- **Dynamic Position Sizing**: Automatically adjusts based on volatility and risk profile
-- **Volatility Filtering**: Only trades symbols meeting minimum volatility requirements
-- **Portfolio Heat Monitoring**: Tracks total risk exposure and drawdown limits
-- **Stop Loss Protection**: Automatic exit based on risk profile settings
-- **Take Profit Optimization**: Risk-adjusted profit targets
-
-## Performance Results
-
-### Strategy Performance by Risk Level (1-Year Backtest)
-
-| Strategy Type | Strategy | Return | Win Rate | Trades | Risk Level | Best For | Status |
-|---------------|----------|--------|----------|--------|------------|----------|---------|
-| **Very High Risk** | Leveraged Momentum | 8.5% | 45% | 85 | Very High | Strong trends | Working |
-| **Very High Risk** | Contrarian Reversal | -12.3% | 35% | 12 | Very High | Major reversals | Working |
-| **High Risk** | Volatility Breakout | 5.2% | 52% | 45 | High | Volatile markets | Working |
-| **High Risk** | ML-Style Pattern | 3.8% | 48% | 72 | High | Complex patterns | Working |
-| **Advanced** | Pairs Trading | 0.0% | 0% | 0 | Medium | Mean reversion | Working |
-| **Advanced** | Statistical Arb | 0.0% | 0% | 0 | Medium-Low | Diversified pairs | Working |
-| **Advanced** | Sector Rotation | 4.2% | 0% | 1 | Medium | Sector trends | Working |
-| **Advanced** | Market Regime | 0.2% | 0% | 1 | Medium | All conditions | Working |
-| **Medium Risk** | Enhanced Combined | 3.3% | 37% | 63 | Medium | All conditions | Working |
-| **Medium Risk** | Balanced Multi | 4.1% | 58% | 38 | Medium | Stable markets | Working |
-| **Low Risk** | Conservative Trend | 2.1% | 65% | 15 | Low | Long-term trends | Working |
-
-**All 19 strategies successfully implemented and tested!**
-
-### Comprehensive Testing Results (3-Month Backtest)
-
-**14/18 Strategies Successfully Executing Trades:**
-
-| Strategy | Trades | Return | Status |
-|----------|--------|---------|---------|
-| **Contrarian Strategy** | 4 | +10.14% | Top Performer |
-| **Mean Reversion** | 2 | +7.06% | Strong |
-| **RSI Strategy** | 2 | +6.22% | Strong |
-| **Enhanced Combined** | 7 | +6.74% | Multi-Strategy |
-| **ML-Style Pattern** | 5 | +6.10% | Adaptive |
-| **Scalping** | 7 | +1.46% | High Frequency |
-| **Leveraged Momentum** | 3 | +1.94% | Aggressive |
-| **Balanced Multi** | 1 | +1.86% | Conservative |
-| **Sector Rotation** | 1 | +4.17% | Cross-Sector |
-| **Market Regime** | 1 | +0.22% | Adaptive |
-| **Volatility Breakout** | 5 | +0.21% | Breakout |
-| **Conservative Trend** | 1 | +3.79% | Low Risk |
-| **Moving Average** | 3 | -1.46% | Trend Following |
-| **Combined Strategy** | 1 | +7.14% | Consensus |
-
-**No Trades (Valid Reasons):**
-- **Enhanced Momentum**: Stricter multi-factor conditions (0 trades)
-- **Multi-Timeframe**: Requires optimization (0 trades)
-- **Pairs Trading**: No cointegration in 3-month period (expected)
-- **Statistical Arbitrage**: No cointegration in short period (expected)
-
-### Advanced Performance Metrics Now Available
-
-All strategies now include professional-grade analytics:
-
-```
-=== Advanced Performance Metrics ===
-Sharpe Ratio: 0.1542
-Sortino Ratio: 0.2234
-Calmar Ratio: 0.0674
-Information Ratio: 0.0892
-Alpha: 0.0234
-Beta: 1.0000
-Volatility: 0.1845
-VaR 95%: -0.0234
-CVaR 95%: -0.0456
-Recovery Factor: 0.1234
-Profit Factor: 1.4500
-Expectancy: $245.67
-```
-
-### Enhanced Asset Universe
-
-System tested across 35+ diverse stocks:
-
-**Technology:** AAPL, MSFT, GOOGL, AMZN, META, TSLA, NVDA, AMD, NFLX, CRM
-**Financial:** JPM, BAC, WFC, GS, MS, V, MA
-**Healthcare:** JNJ, PFE, UNH, MRNA, ABT
-**Energy:** XOM, CVX, COP, EOG
-**Consumer:** WMT, HD, MCD, DIS, NKE, KO, PEP
-**Industrial:** BA, CAT, GE, UPS, HON
-**Materials:** LIN, APD, SHW
-**Utilities:** NEE, DUK
-**Real Estate:** AMT, PLD
-
-### Risk Profile Impact (Same Strategy, Different Risk Levels)
-
-| Risk Profile | Position Size | Return | Max Drawdown | Trades | Volatility |
-|--------------|---------------|--------|--------------|--------|------------|
-| **Very High** | 40% | 8.5% | -45% | 85 | High |
-| **High** | 25% | 5.2% | -28% | 65 | Medium-High |
-| **Medium** | 15% | 3.3% | -18% | 45 | Medium |
-| **Low** | 8% | 1.8% | -8% | 25 | Low |
-| **Very Low** | 5% | 0.9% | -3% | 12 | Very Low |
-
-**Note**: All results are simulated backtests. Past performance does not guarantee future results. Higher risk strategies can lead to significant losses.
-
-## Project Structure
-
-```
-├── trading/
-│   ├── __init__.py
-│   ├── data_fetcher.py    # Yahoo Finance API integration
-│   ├── strategies.py      # Trading strategies
-│   ├── algorithm.py       # Main trading algorithm
-│   └── risk_manager.py    # Risk management
-├── main.py               # Command-line interface
-├── requirements.txt      # Python dependencies
-└── README.md            # This file
-```
-
-## Dependencies
-
-- **yfinance**: Yahoo Finance market data API
-- **pandas**: Data manipulation and analysis
-- **numpy**: Numerical computations
-- **scipy**: Scientific computing (statistical tests, linear algebra)
-- **requests**: HTTP requests (dependency of yfinance)
-
-## Customization
-
-### Adding New Strategies
-
-1. Create a new strategy class in `trading/strategies.py`:
 ```python
-class MyStrategy(BaseStrategy):
-    def __init__(self):
-        super().__init__("My Strategy")
+from research.strategy_ensemble import create_unconventional_ensemble
+from research.backtesting_engine import BacktestingEngine
 
-    def generate_signals(self, data):
-        # Your strategy logic here
-        signals = pd.DataFrame(index=data.index)
-        signals['signal'] = 0
-        # ... implement signals ...
-        return signals
+# Create and configure ensemble
+ensemble = create_unconventional_ensemble()
+
+# Setup backtesting with realistic costs
+backtest_engine = BacktestingEngine(
+    initial_capital=100000,
+    commission_per_trade=0.001,
+    slippage_bps=5
+)
+
+# Run ensemble backtest
+price_data = {}  # Load your price data
+signals = ensemble.generate_ensemble_signals(price_data, current_date)
+results = backtest_engine.run_backtest(signals, price_data)
 ```
 
-2. Update the `_get_strategy` method in `trading/algorithm.py` to include your new strategy
+### 4. Risk Management
 
-### Modifying Risk Parameters
+```python
+from research.risk_manager import RiskManager
 
-Adjust risk settings in the `TradingAlgorithm` constructor or modify `trading/risk_manager.py`.
+# Initialize risk manager
+risk_manager = RiskManager(
+    confidence_level=0.95,
+    max_drawdown_limit=0.20
+)
 
-## Advanced Features
+# Calculate portfolio risk metrics
+var_metrics = risk_manager.calculate_var(portfolio_returns)
+kelly_size = risk_manager.calculate_kelly_criterion(portfolio_returns)
+drawdown = risk_manager.monitor_drawdown(portfolio_values)
 
-- **Multiple Timeframes**: Support for daily, weekly, and monthly data analysis
-- **Portfolio Optimization**: Advanced position sizing and risk-adjusted returns
-- **Performance Analytics**: Comprehensive metrics including Sharpe ratio, max drawdown, and win rates
-- **Strategy Voting**: Consensus-based signal generation for reduced false positives
-- **Volatility Analysis**: ATR-based breakout detection and volatility targeting
+# Generate comprehensive risk report
+risk_report = risk_manager.generate_risk_report(portfolio_history)
+```
 
-## Limitations
+### 5. Parameter Optimization
 
-- **Backtesting Only**: This is for historical testing, not live trading
-- **Simplified Models**: Does not include commissions, slippage, or market impact
-- **US Market Focus**: Optimized for US stock market data and trading hours
-- **No Real-time Execution**: Simulated trading only, no live order placement
+```python
+from research.adaptive_optimizer import optimize_strategy_parameters
+from research.unconventional_strategies import AttentionDrivenStrategy
 
-## License
+# Optimize strategy parameters
+best_params = optimize_strategy_parameters(
+    AttentionDrivenStrategy,
+    parameter_bounds={'attention_lookback': (10, 50), 'attention_threshold': (1.0, 2.0)},
+    price_data_dict=price_data,
+    start_date=start_date,
+    end_date=end_date,
+    optimization_method='bayesian'
+)
+```
 
-This project is for educational purposes. Use at your own risk. Not intended for actual trading without proper testing and validation.
+## 📊 Available Strategies
+
+### Traditional Strategies
+- **Factor Momentum**: Cross-sectional factor analysis
+- **Cross-Sectional Momentum**: Statistical momentum with volume filters
+- **Volatility Regime**: Mean reversion vs momentum based on volatility
+- **Liquidity Timing**: Order flow and volume-based timing
+- **Statistical Process Control**: Control charts for regime detection
+
+### Unconventional Strategies
+- **Attention-Driven**: Investor attention patterns and spikes
+- **Sentiment Regime**: Behavioral biases and market psychology
+- **Information Theory**: Entropy and transfer entropy signals
+- **Complex Systems**: Network effects and contagion analysis
+- **Fractal Chaos**: Fractal geometry and chaos theory
+- **Quantum-Inspired**: Quantum mechanics market analogies
+
+## 🎯 Strategy Analysis Types
+
+```python
+# Individual strategy analysis
+run_research_analysis(symbols, 'attention')        # Attention-driven
+run_research_analysis(symbols, 'sentiment')        # Sentiment regime
+run_research_analysis(symbols, 'info_theory')      # Information theory
+run_research_analysis(symbols, 'complex_systems')  # Complex systems
+run_research_analysis(symbols, 'fractal_chaos')    # Fractal chaos
+run_research_analysis(symbols, 'quantum')          # Quantum-inspired
+
+# Traditional strategies
+run_research_analysis(symbols, 'factor')           # Factor momentum
+run_research_analysis(symbols, 'momentum')         # Cross-sectional momentum
+run_research_analysis(symbols, 'volatility')       # Volatility regime
+run_research_analysis(symbols, 'liquidity')        # Liquidity timing
+run_research_analysis(symbols, 'spc')              # Statistical process control
+
+# Comprehensive analysis
+run_research_analysis(symbols, 'comprehensive')    # All strategies
+run_research_analysis(symbols, 'correlation')      # Correlation analysis only
+```
+
+## 📈 Performance Metrics
+
+The framework provides comprehensive performance analysis:
+
+- **Risk-Adjusted Returns**: Sharpe, Sortino, Calmar ratios
+- **Risk Metrics**: VaR, CVaR, maximum drawdown, recovery time
+- **Position Sizing**: Kelly criterion, risk-adjusted sizing
+- **Stress Testing**: Portfolio performance under various scenarios
+- **Strategy Attribution**: Individual strategy contribution analysis
+
+## 🔧 Configuration
+
+### Backtesting Parameters
+```python
+backtest_config = {
+    'initial_capital': 100000,
+    'commission_per_trade': 0.001,  # 0.1% commission
+    'slippage_bps': 5,              # 5 basis points slippage
+    'slippage_model': 'fixed',      # 'fixed', 'volume_based', 'adaptive'
+    'max_position_size': 0.1,       # 10% max position
+    'risk_free_rate': 0.02          # 2% risk-free rate
+}
+```
+
+### Strategy Parameters
+```python
+# Attention-Driven Strategy
+attention_params = {
+    'attention_lookback': 21,
+    'attention_threshold': 1.5,
+    'volume_multiplier': 2.0
+}
+
+# Fractal Chaos Strategy
+fractal_params = {
+    'fractal_window': 200,
+    'hurst_lookback': 100,
+    'chaos_threshold': 0.1
+}
+```
+
+## 🚦 Risk Management Features
+
+### Portfolio-Level Controls
+- Maximum drawdown limits
+- Portfolio volatility targets
+- Position concentration limits
+- Stress testing scenarios
+
+### Strategy-Level Controls
+- Individual strategy risk budgets
+- Correlation-based diversification
+- Dynamic position sizing
+- Regime-based risk adjustments
+
+## 🌍 Cross-Market Integration
+
+### Market Data Requirements
+```python
+# Add different market data
+analyzer = CrossMarketAnalyzer()
+analyzer.add_market_data('equity', 'AAPL', apple_data)
+analyzer.add_market_data('fx', 'EURUSD', fx_data)
+analyzer.add_market_data('commodity', 'GC=F', gold_data)
+analyzer.add_market_data('crypto', 'BTC-USD', bitcoin_data)
+```
+
+### Cross-Market Signals
+- **FX-Equity Relationships**: Currency impacts on stock performance
+- **Commodity-Sector Links**: Oil/gold effects on energy/materials stocks
+- **Crypto Correlations**: Digital asset relationships with traditional markets
+- **Economic Indicators**: GDP, inflation, rates impact on equity markets
+
+## 🧠 Adaptive Optimization
+
+### Bayesian Optimization
+```python
+from research.adaptive_optimizer import BayesianOptimizer
+
+optimizer = BayesianOptimizer(parameter_bounds={
+    'lookback': (10, 100),
+    'threshold': (0.5, 3.0)
+})
+
+best_params = optimizer.optimize(objective_function)
+```
+
+### Walk-Forward Analysis
+```python
+from research.adaptive_optimizer import WalkForwardOptimizer
+
+wf_optimizer = WalkForwardOptimizer(
+    optimization_window=252,  # 1 year in-sample
+    validation_window=63,     # 3 months out-of-sample
+    step_size=21              # Monthly re-optimization
+)
+
+results = wf_optimizer.optimize_strategy(strategy_class, param_bounds, price_data)
+```
+
+## 📊 Results Interpretation
+
+### Strategy Signals
+- **1**: Strong buy signal
+- **-1**: Strong sell signal
+- **0**: No signal/neutral
+
+### Ensemble Weights
+- Dynamically adjusted based on market regime
+- Risk parity allocation across strategies
+- Performance momentum adjustments
+
+### Risk Metrics
+- **VaR**: Potential loss at confidence level
+- **CVaR**: Expected loss beyond VaR
+- **Kelly Fraction**: Optimal position size
+- **Drawdown**: Peak-to-trough decline
+
+## 🔄 Development Workflow
+
+1. **Research**: Analyze new strategies using the framework
+2. **Backtest**: Test strategies with realistic costs and slippage
+3. **Optimize**: Use Bayesian/walk-forward optimization for parameters
+4. **Risk Manage**: Apply comprehensive risk controls
+5. **Ensemble**: Combine strategies with regime-based allocation
+6. **Deploy**: Implement live trading with risk limits
+
+## 📈 Example Results
+
+```python
+# Comprehensive analysis results
+{
+    'strategy_performance': {
+        'total_return': 0.234,      # 23.4% return
+        'sharpe_ratio': 1.85,       # Excellent risk-adjusted return
+        'max_drawdown': -0.123,     # 12.3% maximum drawdown
+        'win_rate': 0.58           # 58% winning trades
+    },
+    'risk_metrics': {
+        'var_95': -0.034,          # 3.4% VaR at 95% confidence
+        'cvar_95': -0.052,         # 5.2% expected shortfall
+        'kelly_fraction': 0.085    # 8.5% optimal position size
+    },
+    'ensemble_weights': {
+        'attention_driven': 0.22,
+        'sentiment_regime': 0.18,
+        'fractal_chaos': 0.15,
+        'information_theory': 0.12,
+        'complex_systems': 0.10,
+        'quantum_inspired': 0.08,
+        'volatility_regime': 0.15
+    }
+}
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Add your strategy or enhancement
+4. Add comprehensive tests
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## ⚠️ Disclaimer
+
+This framework is for research and educational purposes. Not intended for live trading without thorough validation and risk management. Past performance does not guarantee future results.
+
+---
+
+**Ready to revolutionize your quantitative trading approach? 🚀**
