@@ -18,6 +18,8 @@ cpp_extension_path = os.path.join(os.path.dirname(__file__), '..', 'cpp_engine',
 if cpp_extension_path not in sys.path:
     sys.path.insert(0, cpp_extension_path)
 
+CPP_AVAILABLE = False
+
 try:
     # Import C++ extensions
     import python_bindings as cpp
@@ -46,12 +48,220 @@ except ImportError as e:
     print(f"C++ extensions not available: {e}")
     print("Falling back to Python implementations...")
 
-    # Fallback to Python implementations
+    # Fallback implementations when C++ is not available
     from research.stochastic_optimizer import ParticleSwarmOptimizer
     from research.alpha_generator import UnconventionalAlphaGenerator
     from research.production_runner import ProductionRunner
 
-    CPP_AVAILABLE = False
+    # Define fallback types
+    class MarketData:
+        def __init__(self):
+            self.symbol_id = 0
+            self.bid_price = 0
+            self.ask_price = 0
+            self.bid_size = 0
+            self.ask_size = 0
+            self.timestamp = 0
+            self.venue_id = 0
+            self.flags = 0
+
+        def quantize(self):
+            return self
+
+    class Signal:
+        def __init__(self):
+            self.symbol_id = 0
+            self.signal = 0
+            self.confidence = 0.0
+            self.timestamp = 0
+            self.strategy_id = 0
+            self.target_price = 0.0
+            self.target_quantity = 0
+
+        def quantize(self):
+            return self
+
+    class Order:
+        def __init__(self):
+            self.order_id = 0
+            self.symbol_id = 0
+            self.type = 0
+            self.side = 0
+            self.price = 0
+            self.quantity = 0
+            self.status = 0
+            self.create_time = 0
+            self.update_time = 0
+            self.venue_id = 0
+            self.tif = 0
+
+        def update_fill(self, price, qty):
+            pass
+
+    class RiskMetrics:
+        def __init__(self):
+            self.symbol_id = 0
+            self.current_price = 0
+            self.position_size = 0
+            self.entry_price = 0
+            self.stop_loss_price = 0
+            self.take_profit_price = 0
+            self.var_95 = 0.0
+            self.expected_shortfall = 0.0
+            self.sharpe_ratio = 0.0
+            self.max_drawdown = 0.0
+            self.timestamp = 0
+
+        def update_position(self, price):
+            self.current_price = price
+
+        def check_stop_loss(self):
+            return False
+
+        def check_take_profit(self):
+            return False
+
+    class PerformanceCounters:
+        def __init__(self):
+            self.signals_processed = 0
+            self.orders_submitted = 0
+            self.orders_executed = 0
+            self.risk_checks_performed = 0
+            self.market_data_processed = 0
+            self.avg_signal_latency = 0
+            self.avg_order_latency = 0
+            self.avg_risk_latency = 0
+            self.max_signal_latency = 0
+            self.max_order_latency = 0
+            self.max_risk_latency = 0
+            self.signal_errors = 0
+            self.order_errors = 0
+            self.risk_errors = 0
+            self.data_errors = 0
+
+        def update_signal_latency(self, latency):
+            pass
+
+        def update_order_latency(self, latency):
+            pass
+
+        def update_risk_latency(self, latency):
+            pass
+
+    # Fallback utility functions
+    def price_from_double(price):
+        return int(price * 10000)
+
+    def price_to_double(price):
+        return price / 10000.0
+
+    def current_timestamp():
+        return int(time.time() * 1e9)
+
+    # Fallback classes
+    class SignalEngine:
+        def __init__(self):
+            pass
+
+        def generate_signals(self, market_data):
+            return []
+
+        def get_performance_counters(self):
+            return PerformanceCounters()
+
+        def reset_performance_counters(self):
+            pass
+
+    class RiskEngine:
+        def __init__(self):
+            pass
+
+        def calculate_portfolio_risk(self, positions, market_data):
+            return []
+
+        def check_risk_limits(self, positions, risk):
+            return True
+
+        def calculate_position_risk(self, position, market_data):
+            return RiskMetrics()
+
+        def calculate_portfolio_risk_metrics(self, positions, market_data):
+            return []
+
+        def update_risk_metrics(self, risk_metrics, new_data):
+            pass
+
+        def set_risk_limits(self, limits):
+            pass
+
+        def get_risk_limits(self):
+            return {}
+
+        def run_stress_tests(self, positions, baseline_data):
+            return []
+
+        def get_performance_counters(self):
+            return PerformanceCounters()
+
+        def reset_performance_counters(self):
+            pass
+
+    class OrderEngine:
+        def __init__(self):
+            pass
+
+        def submit_order(self, order):
+            return 0
+
+        def cancel_order(self, order_id):
+            return False
+
+        def modify_order(self, order_id, new_price, new_quantity):
+            return False
+
+        def submit_orders(self, orders):
+            return []
+
+        def cancel_all_orders(self, symbol_id=0):
+            return 0
+
+        def get_order_status(self, order_id):
+            return Order()
+
+        def get_pending_orders(self, symbol_id=0):
+            return []
+
+        def get_filled_orders(self, symbol_id=0):
+            return []
+
+        def get_execution_reports(self, order_id):
+            return []
+
+        def select_optimal_venue(self, order, market_data):
+            return 1
+
+        def set_routing_strategy(self, strategy):
+            pass
+
+        def estimate_market_impact(self, order):
+            return type('MarketImpact', (), {
+                'expected_price_impact': 0,
+                'expected_fill_size': 0,
+                'expected_execution_time': 0,
+                'execution_probability': 1.0
+            })()
+
+        def process_order_queue(self):
+            pass
+
+        def get_queue_depth(self):
+            return 0
+
+        def get_statistics(self):
+            return {}
+
+        def reset_statistics(self):
+            pass
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

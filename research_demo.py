@@ -249,7 +249,7 @@ def main():
     print("• Comprehensive backtesting with realistic costs")
     print("• Multi-dimensional correlation analysis")
     print("• Behavioral finance and complexity theory approaches")
-    print("\nReady to generate alpha through innovative quantitative methods! 🚀")
+    print("\nReady to generate alpha through innovative quantitative methods!")
 
 
 if __name__ == "__main__":

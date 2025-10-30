@@ -91,7 +91,7 @@ cpp_engine/                       # High-performance C++ components
 ├── bindings/                    # Python bindings (pybind11)
 ├── tests/                       # Unit tests
 └── benchmarks/                  # Performance benchmarks
-```
+   ```
 
 ## Quick Start
 

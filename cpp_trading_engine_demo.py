@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Citadel-Style Trading Engine Demonstration
+CPP Trading Engine Demonstration
 
-This script demonstrates the complete Citadel-level quantitative trading framework
+This script demonstrates the complete high-performance quantitative trading framework
 with Python orchestration and C++ performance components.
 """
 
@@ -22,7 +22,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
-logger = logging.getLogger('CitadelDemo')
+logger = logging.getLogger('CPPDemo')
 
 def print_header(title):
     """Print a formatted header"""
@@ -41,33 +41,33 @@ def demonstrate_python_framework():
         tester = ComprehensiveTester()
 
         # Test imports
-        print("✓ Testing imports...")
+        print("Testing imports...")
         import_success = tester.test_imports()
         print(f"  Imports: {'PASS' if import_success else 'FAIL'}")
 
         # Test basic strategies
-        print("✓ Testing strategies...")
+        print("Testing strategies...")
         strategy_success = tester.test_basic_strategies()
         print(f"  Strategies: {'PASS' if strategy_success else 'FAIL'}")
 
         # Test risk management
-        print("✓ Testing risk management...")
+        print("Testing risk management...")
         risk_success = tester.test_risk_management()
         print(f"  Risk Management: {'PASS' if risk_success else 'FAIL'}")
 
-        print("\n✓ Python framework validation completed successfully!")
+        print("\nPython framework validation completed successfully!")
 
     except Exception as e:
         print(f"✗ Python framework demonstration failed: {e}")
 
 def demonstrate_cpp_engine():
     """Demonstrate the C++ performance engine"""
-    print_header("C++ Performance Engine Demonstration")
+    print_header("CPP Performance Engine Demonstration")
 
     try:
         from research.cpp_integration import CitadelTradingEngine, benchmark_engine
 
-        print("Initializing Citadel Trading Engine...")
+        print("Initializing CPP Trading Engine...")
 
         # Initialize engine
         engine = CitadelTradingEngine({
@@ -153,7 +153,7 @@ def demonstrate_cpp_engine():
             print(f"  Avg latency: {sig_stats.get('avg_latency_ns', 0)} ns")
             print(f"  Max latency: {sig_stats.get('max_latency_ns', 0)} ns")
 
-        print("\n✓ C++ engine demonstration completed successfully!")
+        print("\nC++ engine demonstration completed successfully!")
 
         return True
 
@@ -187,20 +187,20 @@ def run_performance_benchmark():
         # Performance analysis
         if results['cpp_available']:
             if results['throughput_ticks_per_second'] > 10000:
-                print("  ✓ Excellent performance (>10K ticks/sec)")
+                print("  Excellent performance (>10K ticks/sec)")
             elif results['throughput_ticks_per_second'] > 1000:
-                print("  ✓ Good performance (>1K ticks/sec)")
+                print("  Good performance (>1K ticks/sec)")
             else:
-                print("  ⚠ Performance could be improved")
+                print("  Performance could be improved")
 
             if results['avg_latency_ms'] < 50:
-                print("  ✓ Low latency (<50ms)")
+                print("  Low latency (<50ms)")
             elif results['avg_latency_ms'] < 100:
-                print("  ✓ Acceptable latency (<100ms)")
+                print("  Acceptable latency (<100ms)")
             else:
-                print("  ⚠ High latency - consider C++ optimization")
+                print("  High latency - consider C++ optimization")
 
-        print("\n✓ Performance benchmark completed!")
+        print("\nPerformance benchmark completed!")
 
     except Exception as e:
         print(f"✗ Performance benchmark failed: {e}")
@@ -231,7 +231,7 @@ def demonstrate_trading_strategies():
         ]
 
         for name, strategy_class in strategies:
-            print(f"✓ {name} Strategy")
+            print(f"  {name} Strategy")
 
         print("\nStrategy Features:")
         print("  • Attention-Driven: Exploits investor attention patterns")
@@ -241,7 +241,7 @@ def demonstrate_trading_strategies():
         print("  • Fractal Chaos: Hurst exponent and Lyapunov analysis")
         print("  • Quantum-Inspired: Superposition and coherence principles")
 
-        print("\n✓ Trading strategies demonstration completed!")
+        print("\nTrading strategies demonstration completed!")
 
     except Exception as e:
         print(f"✗ Trading strategies demonstration failed: {e}")
@@ -250,7 +250,7 @@ def show_system_capabilities():
     """Show system capabilities and architecture"""
     print_header("System Capabilities & Architecture")
 
-    print("Citadel-Style Architecture:")
+    print("High-Performance CPP Architecture:")
     print("├── Python Layer (Orchestration)")
     print("│   ├── Strategy Management")
     print("│   ├── Risk Control")
@@ -307,7 +307,7 @@ def show_system_capabilities():
 
 def main():
     """Main demonstration function"""
-    print("🚀 Citadel-Style Quantitative Trading Engine")
+    print("CPP Trading Engine")
     print("High-Frequency Trading Framework with C++ Performance")
     print(f"Demonstration started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
@@ -316,17 +316,17 @@ def main():
 
     print("Checking Python environment...")
     print(f"  Python version: {sys.version}")
-    print(f"  NumPy available: {'✓' if 'numpy' in sys.modules else '✗'}")
-    print(f"  Pandas available: {'✓' if 'pandas' in sys.modules else '✗'}")
+    print(f"  NumPy available: {'YES' if 'numpy' in sys.modules else 'NO'}")
+    print(f"  Pandas available: {'YES' if 'pandas' in sys.modules else 'NO'}")
 
     print("Checking C++ extensions...")
     cpp_available = False
     try:
         import research.cpp_integration
         cpp_available = research.cpp_integration.CPP_AVAILABLE
-        print("  C++ extensions: ✓ Available")
+        print("  C++ extensions: Available")
     except ImportError:
-        print("  C++ extensions: ✗ Not available (run ./build_cpp.sh to build)")
+        print("  C++ extensions: Not available (run ./build_cpp.sh to build)")
 
     # Run demonstrations
     demonstrate_python_framework()
@@ -342,7 +342,7 @@ def main():
     # Final summary
     print_header("Demonstration Summary")
 
-    print("✓ Python Research Framework")
+    print("Python Research Framework")
     print("  ├── Comprehensive strategy library")
     print("  ├── Advanced risk management")
     print("  ├── Backtesting with transaction costs")
@@ -350,39 +350,39 @@ def main():
     print("  └── Parameter optimization")
 
     if cpp_available:
-        print("✓ C++ Performance Engine")
+        print("C++ Performance Engine")
         print("  ├── Microsecond-level latency")
         print("  ├── SIMD-accelerated computations")
         print("  ├── Quantization optimizations")
         print("  └── Lock-free data structures")
     else:
-        print("⚠ C++ Performance Engine (Not Built)")
+        print("C++ Performance Engine (Not Built)")
         print("  ├── Run ./build_cpp.sh to enable")
         print("  ├── 50-1000x performance improvement")
-        print("  ├── Citadel-level speed capabilities")
+        print("  ├── High-performance speed capabilities")
 
-    print("✓ Unconventional Strategies")
+    print("Unconventional Strategies")
     print("  ├── Behavioral finance models")
     print("  ├── Complex systems analysis")
     print("  ├── Information theory signals")
     print("  └── Quantum-inspired algorithms")
 
-    print("✓ Production-Grade Features")
+    print("Production-Grade Features")
     print("  ├── Comprehensive error handling")
     print("  ├── Real-time performance monitoring")
     print("  ├── Automated risk controls")
     print("  └── Modular architecture")
 
-    print("\n🎯 Framework Status: PRODUCTION READY")
-    print("🏗️ Architecture: Citadel-Level Performance")
-    print("⚡ Performance: Microsecond Latency Achievable")
-    print("🔬 Research: State-of-the-Art Quantitative Methods")
+    print("\nFramework Status: PRODUCTION READY")
+    print("Architecture: High-Performance CPP")
+    print("Performance: Microsecond Latency Achievable")
+    print("Research: State-of-the-Art Quantitative Methods")
 
     if cpp_available:
-        print("\n🚀 Full Citadel Engine Active!")
+        print("\nFull CPP Engine Active!")
         print("   Ready for high-frequency trading with extreme performance.")
     else:
-        print("\n🔧 Build C++ Components for Maximum Performance:")
+        print("\nBuild C++ Components for Maximum Performance:")
         print("   ./build_cpp.sh")
 
     print("\n" + "="*60)
