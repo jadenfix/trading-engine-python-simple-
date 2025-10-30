@@ -1,6 +1,6 @@
-# Citadel-Style Quantitative Trading Engine
+# Quant-Style Quantitative Trading Engine
 
-A high-frequency, Citadel-level quantitative trading framework combining Python orchestration with C++ performance for microsecond-level latency and extreme throughput. Features unconventional strategies, advanced risk management, cross-market signal analysis, and production-grade infrastructure.
+A high-frequency, Quant-level quantitative trading framework combining Python orchestration with C++ performance for microsecond-level latency and extreme throughput. Features unconventional strategies, advanced risk management, cross-market signal analysis, and production-grade infrastructure.
 
 ## Features
 
@@ -44,7 +44,7 @@ A high-frequency, Citadel-level quantitative trading framework combining Python 
 - **Regime-Adaptive Parameters**: Different parameters for different market conditions
 - **Genetic Algorithms**: Evolutionary parameter optimization
 
-### Citadel-Level C++ Performance Engine
+### Quant-Level C++ Performance Engine
 - **Microsecond Latency**: < 10μs end-to-end processing
 - **Extreme Throughput**: > 100,000 orders/second
 - **SIMD Acceleration**: AVX-512 vectorized computations
@@ -198,8 +198,7 @@ best_params = optimize_strategy_parameters(
 
 ### Benchmark Results (Sample)
 
-```
-Citadel Trading Engine Benchmark
+```CPP Trading Engine Benchmark
 ========================================
 Generating 100 symbols × 1000 ticks...
 Running benchmark...
@@ -235,10 +234,10 @@ C++ Max latency: 45600 ns
 The framework uses a hybrid Python/C++ architecture for optimal performance:
 
 ```python
-from research.cpp_integration import CitadelTradingEngine
+from research.cpp_integration import QuantTradingEngine
 
 # Initialize high-performance engine
-engine = CitadelTradingEngine({
+engine = QuantTradingEngine({
     'max_orders_per_second': 10000,
     'enable_simd': True,
     'enable_quantization': True
