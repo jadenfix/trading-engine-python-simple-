@@ -1,0 +1,479 @@
+{
+  "timestamp": "2025-10-29T23:51:40.159287",
+  "framework_status": "ROBUST",
+  "data_collection": {
+    "timestamp": "2025-10-29T23:51:30.644032",
+    "total_assets_tested": 40,
+    "successful_fetches": 39,
+    "failed_fetches": 1,
+    "data_points_collected": 4957,
+    "sector_breakdown": {
+      "Technology": 19,
+      "Financials": 4,
+      "Healthcare": 5,
+      "Consumer": 4,
+      "Energy": 2,
+      "Industrials": 2,
+      "Commodities": 3
+    },
+    "cap_breakdown": {
+      "Large": 31,
+      "Mid": 4,
+      "Small": 4
+    },
+    "asset_results": {
+      "AAPL": {
+        "name": "Apple Inc.",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$195.05 - $269.70",
+        "avg_daily_volume": 53960322,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 25.318533173890366
+      },
+      "MSFT": {
+        "name": "Microsoft Corporation",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$393.89 - $542.07",
+        "avg_daily_volume": 20340294,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 18.5804485640006
+      },
+      "GOOGL": {
+        "name": "Alphabet Inc.",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$151.06 - $274.57",
+        "avg_daily_volume": 37377004,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 28.66673089870806
+      },
+      "AMZN": {
+        "name": "Amazon.com Inc.",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$184.42 - $238.24",
+        "avg_daily_volume": 43227670,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 28.487098711606475
+      },
+      "TSLA": {
+        "name": "Tesla Inc.",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$275.35 - $461.51",
+        "avg_daily_volume": 97351275,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 52.438033740512914
+      },
+      "NVDA": {
+        "name": "NVIDIA Corporation",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$108.91 - $207.04",
+        "avg_daily_volume": 185672693,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 31.035312393888127
+      },
+      "META": {
+        "name": "Meta Platforms Inc.",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$548.21 - $789.47",
+        "avg_daily_volume": 12392934,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 30.698492954574576
+      },
+      "NFLX": {
+        "name": "Netflix Inc.",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$1094.56 - $1339.13",
+        "avg_daily_volume": 3401740,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 27.67281574641538
+      },
+      "JPM": {
+        "name": "JPMorgan Chase & Co.",
+        "sector": "Financials",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$242.27 - $314.53",
+        "avg_daily_volume": 8320066,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 17.628886298896603
+      },
+      "BAC": {
+        "name": "Bank of America Corp.",
+        "sector": "Financials",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$39.43 - $53.02",
+        "avg_daily_volume": 37124175,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 20.546085203643273
+      },
+      "WFC": {
+        "name": "Wells Fargo & Company",
+        "sector": "Financials",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$70.21 - $87.01",
+        "avg_daily_volume": 15915100,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 25.661268086519566
+      },
+      "GS": {
+        "name": "Goldman Sachs Group Inc.",
+        "sector": "Financials",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$541.93 - $806.32",
+        "avg_daily_volume": 2042072,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 22.64177699174486
+      },
+      "JNJ": {
+        "name": "Johnson & Johnson",
+        "sector": "Healthcare",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$144.06 - $193.72",
+        "avg_daily_volume": 8389176,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 17.075287728455844
+      },
+      "PFE": {
+        "name": "Pfizer Inc.",
+        "sector": "Healthcare",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$21.65 - $27.37",
+        "avg_daily_volume": 45528825,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 27.344792240845887
+      },
+      "UNH": {
+        "name": "UnitedHealth Group Inc.",
+        "sector": "Healthcare",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$236.28 - $405.98",
+        "avg_daily_volume": 16605276,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 50.270631173388026
+      },
+      "ABT": {
+        "name": "Abbott Laboratories",
+        "sector": "Healthcare",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$119.98 - $136.85",
+        "avg_daily_volume": 6272022,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 21.098659691438158
+      },
+      "WMT": {
+        "name": "Walmart Inc.",
+        "sector": "Consumer",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$94.03 - $109.03",
+        "avg_daily_volume": 16435721,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 18.483774651555432
+      },
+      "PG": {
+        "name": "Procter & Gamble Co.",
+        "sector": "Consumer",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$146.40 - $167.56",
+        "avg_daily_volume": 7641096,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 15.129152163049838
+      },
+      "KO": {
+        "name": "Coca-Cola Co.",
+        "sector": "Consumer",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$65.67 - $71.49",
+        "avg_daily_volume": 15744567,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 15.435999649098676
+      },
+      "PEP": {
+        "name": "PepsiCo Inc.",
+        "sector": "Consumer",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$125.83 - $153.71",
+        "avg_daily_volume": 8694485,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 22.57991243921414
+      },
+      "CRM": {
+        "name": "Salesforce Inc.",
+        "sector": "Technology",
+        "cap": "Mid",
+        "data_points": 127,
+        "price_range": "$231.26 - $290.18",
+        "avg_daily_volume": 8289688,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 28.53378667702519
+      },
+      "NOW": {
+        "name": "ServiceNow Inc.",
+        "sector": "Technology",
+        "cap": "Mid",
+        "data_points": 127,
+        "price_range": "$850.86 - $1044.69",
+        "avg_daily_volume": 1439599,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 26.898548379548732
+      },
+      "SQ": {
+        "error": "Insufficient data: 0 points",
+        "sector": "Technology",
+        "cap": "Mid"
+      },
+      "UBER": {
+        "name": "Uber Technologies Inc.",
+        "sector": "Technology",
+        "cap": "Mid",
+        "data_points": 127,
+        "price_range": "$80.89 - $100.10",
+        "avg_daily_volume": 19094312,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 31.135295120235213
+      },
+      "SPOT": {
+        "name": "Spotify Technology S.A.",
+        "sector": "Technology",
+        "cap": "Mid",
+        "data_points": 127,
+        "price_range": "$602.26 - $775.90",
+        "avg_daily_volume": 1849955,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 38.419523719545445
+      },
+      "ROKU": {
+        "name": "Roku Inc.",
+        "sector": "Technology",
+        "cap": "Small",
+        "data_points": 127,
+        "price_range": "$59.89 - $104.84",
+        "avg_daily_volume": 3630420,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 48.37538784129733
+      },
+      "COIN": {
+        "name": "Coinbase Global Inc.",
+        "sector": "Technology",
+        "cap": "Small",
+        "data_points": 127,
+        "price_range": "$196.56 - $419.78",
+        "avg_daily_volume": 12148072,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 72.16624316114567
+      },
+      "PLTR": {
+        "name": "Palantir Technologies Inc.",
+        "sector": "Technology",
+        "cap": "Small",
+        "data_points": 127,
+        "price_range": "$108.86 - $198.81",
+        "avg_daily_volume": 71756399,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 50.67558246899636
+      },
+      "SNOW": {
+        "name": "Snowflake Inc.",
+        "sector": "Technology",
+        "cap": "Small",
+        "data_points": 127,
+        "price_range": "$159.49 - $269.70",
+        "avg_daily_volume": 5002844,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 47.36418345354651
+      },
+      "XOM": {
+        "name": "Exxon Mobil Corporation",
+        "sector": "Energy",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$100.89 - $117.22",
+        "avg_daily_volume": 15804562,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 19.638258883265067
+      },
+      "CVX": {
+        "name": "Chevron Corporation",
+        "sector": "Energy",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$132.40 - $161.83",
+        "avg_daily_volume": 8808303,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 18.227993817441327
+      },
+      "BA": {
+        "name": "Boeing Co.",
+        "sector": "Industrials",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$182.89 - $237.38",
+        "avg_daily_volume": 7809755,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 26.585498441459997
+      },
+      "CAT": {
+        "name": "Caterpillar Inc.",
+        "sector": "Industrials",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$307.26 - $585.49",
+        "avg_daily_volume": 2826716,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 28.246018130743657
+      },
+      "GLD": {
+        "name": "SPDR Gold Shares",
+        "sector": "Commodities",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$293.16 - $403.15",
+        "avg_daily_volume": 13018474,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 21.123115758405874
+      },
+      "SLV": {
+        "name": "iShares Silver Trust",
+        "sector": "Commodities",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$29.12 - $49.17",
+        "avg_daily_volume": 25960754,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 27.83091863219428
+      },
+      "USO": {
+        "name": "United States Oil Fund",
+        "sector": "Commodities",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$62.37 - $83.12",
+        "avg_daily_volume": 6921792,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 31.13734399737293
+      },
+      "NVO": {
+        "name": "Novo Nordisk A/S",
+        "sector": "Healthcare",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$45.38 - $81.05",
+        "avg_daily_volume": 13951493,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 51.14761349369146
+      },
+      "ASML.AS": {
+        "name": "ASML Holding N.V.",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 131,
+        "price_range": "$579.94 - $919.40",
+        "avg_daily_volume": 658738,
+        "date_range": "2025-04-29 to 2025-10-29",
+        "volatility": 35.51279584635195
+      },
+      "TCEHY": {
+        "name": "Tencent Holdings Ltd.",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$60.53 - $87.33",
+        "avg_daily_volume": 1892757,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 27.949150034886777
+      },
+      "BABA": {
+        "name": "Alibaba Group Holding Ltd.",
+        "sector": "Technology",
+        "cap": "Large",
+        "data_points": 127,
+        "price_range": "$103.83 - $189.34",
+        "avg_daily_volume": 16436811,
+        "date_range": "2025-04-30 to 2025-10-29",
+        "volatility": 46.26195898936755
+      }
+    },
+    "performance_summary": {}
+  },
+  "strategy_applicability": {
+    "Technology": {
+      "attention": "SUCCESS",
+      "sentiment": "SUCCESS",
+      "volatility": "SUCCESS",
+      "factor": "SUCCESS"
+    },
+    "Financials": {
+      "attention": "SUCCESS",
+      "sentiment": "SUCCESS",
+      "volatility": "SUCCESS",
+      "factor": "SUCCESS"
+    },
+    "Healthcare": {
+      "attention": "SUCCESS",
+      "sentiment": "SUCCESS",
+      "volatility": "SUCCESS",
+      "factor": "SUCCESS"
+    },
+    "Consumer": {
+      "attention": "SUCCESS",
+      "sentiment": "SUCCESS",
+      "volatility": "SUCCESS",
+      "factor": "SUCCESS"
+    },
+    "Energy": {
+      "attention": "SUCCESS",
+      "sentiment": "SUCCESS",
+      "volatility": "SUCCESS",
+      "factor": "SUCCESS"
+    },
+    "Industrials": {
+      "attention": "SUCCESS",
+      "sentiment": "SUCCESS",
+      "volatility": "SUCCESS",
+      "factor": "SUCCESS"
+    },
+    "Commodities": {
+      "attention": "SUCCESS",
+      "sentiment": "SUCCESS",
+      "volatility": "SUCCESS",
+      "factor": "SUCCESS"
+    }
+  },
+  "robustness_analysis": {
+    "data_success_rate": 0.975,
+    "strategy_success_rate": 1.0,
+    "overall_status": "EXCELLENT - Framework is highly robust and production-ready",
+    "sectors_covered": 7,
+    "market_caps_covered": 3,
+    "total_assets_supported": 39,
+    "data_points_processed": 4957
+  },
+  "recommendations": [
+    "Address 1 failed data fetches"
+  ]
+}
