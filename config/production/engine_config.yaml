@@ -1,0 +1,57 @@
+# Production Trading Engine Configuration
+# High-performance settings optimized for live trading
+
+engine:
+  type: "rust"  # Use Rust engine for maximum performance
+  fallback_to_python: false
+
+performance:
+  max_threads: 16
+  memory_pool_size_mb: 1024
+  cache_size_mb: 512
+  enable_simd: true
+  enable_quantization: true
+
+risk_management:
+  max_portfolio_var: 0.05  # 5% VaR limit
+  max_position_var: 0.02   # 2% per position VaR
+  max_drawdown: 0.10       # 10% max drawdown
+  max_leverage: 5.0        # 5x max leverage
+  max_concentration: 0.25  # 25% max position size
+  max_positions: 100       # Max number of positions
+  kelly_fraction: 0.5      # Conservative Kelly fraction
+
+signal_generation:
+  max_signals_per_symbol: 10
+  min_signal_confidence: 0.1
+  max_signal_age_seconds: 1.0
+  enable_technical_indicators: true
+  enable_statistical_signals: true
+  enable_ml_signals: true
+  enable_caching: true
+
+order_management:
+  max_orders_per_second: 1000
+  order_timeout_seconds: 30
+  enable_smart_routing: true
+  routing_strategy: "best_price"
+
+market_data:
+  max_symbols: 10000
+  data_retention_hours: 24
+  enable_compression: true
+  update_frequency_ms: 100
+
+logging:
+  level: "INFO"
+  file_rotation: "daily"
+  max_file_size_mb: 100
+  enable_performance_logging: true
+
+monitoring:
+  metrics_interval_seconds: 60
+  health_check_interval_seconds: 30
+  alert_thresholds:
+    max_latency_us: 10000
+    max_error_rate: 0.01
+    min_success_rate: 0.99
