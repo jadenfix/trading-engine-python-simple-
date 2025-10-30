@@ -1,0 +1,269 @@
+{
+  "timestamp": "2025-10-29T23:44:08.286792",
+  "test_summary": {
+    "total_engines_tested": 4,
+    "engines_available": [
+      "rust",
+      "python"
+    ],
+    "engines_failed": [
+      "go",
+      "cpp"
+    ],
+    "total_symbols_tested": 8,
+    "total_data_points": 1016
+  },
+  "engine_results": {
+    "rust": {
+      "AAPL_10": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.10013580322265625,
+        "throughput": 99864.38095238095
+      },
+      "AAPL_50": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.1468658447265625,
+        "throughput": 340446.75324675324
+      },
+      "MSFT_10": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.04506111145019531,
+        "throughput": 221920.84656084655
+      },
+      "MSFT_50": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.051021575927734375,
+        "throughput": 979977.5700934579
+      },
+      "GOOGL_10": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.06175041198730469,
+        "throughput": 161942.23938223938
+      },
+      "GOOGL_50": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.064849853515625,
+        "throughput": 771011.7647058824
+      },
+      "TSLA_10": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.03409385681152344,
+        "throughput": 293307.97202797205
+      },
+      "TSLA_50": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.0629425048828125,
+        "throughput": 794375.7575757576
+      },
+      "NVDA_10": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.029802322387695312,
+        "throughput": 335544.32
+      },
+      "NVDA_50": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.0457763671875,
+        "throughput": 1092266.6666666667
+      },
+      "AMZN_10": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.025033950805664062,
+        "throughput": 399457.5238095238
+      },
+      "AMZN_50": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.05078315734863281,
+        "throughput": 984578.4037558686
+      },
+      "META_10": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.023126602172851562,
+        "throughput": 432402.4742268041
+      },
+      "META_50": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.04792213439941406,
+        "throughput": 1043359.2039800995
+      },
+      "NFLX_10": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.023126602172851562,
+        "throughput": 432402.4742268041
+      },
+      "NFLX_50": {
+        "signals": 0,
+        "orders": 0,
+        "latency_ms": 0.04410743713378906,
+        "throughput": 1133595.6756756757
+      }
+    },
+    "go": {
+      "error": "Build failed"
+    },
+    "cpp": {
+      "error": "Import failed",
+      "details": "cannot import name 'QuantTradingEngine' from 'research.cpp_integration' (/Users/jadenfix/fghjk/research/cpp_integration.py)"
+    },
+    "python": {
+      "overall_result": {
+        "test_imports": {
+          "status": "SUCCESS",
+          "modules_tested": 12,
+          "failed_imports": 0
+        },
+        "test_data_fetcher": {
+          "status": "SUCCESS",
+          "data_points": 22,
+          "date_range": "2025-09-30 00:00:00-04:00 to 2025-10-29 00:00:00-04:00",
+          "current_price": 269.70001220703125
+        },
+        "test_basic_strategies": {
+          "status": "SUCCESS",
+          "strategies_tested": 5,
+          "results": {
+            "FactorMomentumStrategy": "SUCCESS: 2 valid signals generated",
+            "CrossSectionalMomentumStrategy": "SUCCESS: 2 valid signals generated",
+            "VolatilityRegimeStrategy": "SUCCESS: 2 valid signals generated",
+            "LiquidityTimingStrategy": "SUCCESS: 2 valid signals generated",
+            "StatisticalProcessControlStrategy": "SUCCESS: 2 valid signals generated"
+          }
+        },
+        "test_unconventional_strategies": {
+          "status": "SUCCESS",
+          "strategies_tested": 6,
+          "results": {
+            "AttentionDrivenStrategy": "SUCCESS: 1 signals generated",
+            "SentimentRegimeStrategy": "SUCCESS: 1 signals generated",
+            "InformationTheoryStrategy": "SUCCESS: 1 signals generated",
+            "ComplexSystemsStrategy": "SUCCESS: 1 signals generated",
+            "FractalChaosStrategy": "SUCCESS: 1 signals generated",
+            "QuantumInspiredStrategy": "SUCCESS: 1 signals generated"
+          }
+        },
+        "test_risk_manager": {
+          "status": "SUCCESS",
+          "var_95": -0.02967372895236743,
+          "cvar_95": -0.03585073357479325,
+          "kelly_fraction": 0.08148378563700334,
+          "max_drawdown": -0.6033160268770031
+        },
+        "test_adaptive_optimizer": {
+          "status": "SUCCESS",
+          "bayesian_opt": -5.401303400016576e-05,
+          "distance_from_optimum": 0.007349356026222009
+        },
+        "test_cross_market_signals": {
+          "status": "SUCCESS",
+          "markets_added": 2,
+          "correlations_found": 0,
+          "signals_generated": 3
+        },
+        "test_stochastic_optimizer": {
+          "status": "SUCCESS",
+          "pso_best_score": -0.0019001863691943952,
+          "hmm_status": "HMM_NOT_AVAILABLE",
+          "hmm_available": false
+        },
+        "test_alpha_generator": {
+          "status": "SUCCESS",
+          "signal_combination": 3,
+          "relationships_analyzed": 2,
+          "unusual_relationships": 1
+        },
+        "test_comprehensive_analyzer": {
+          "status": "SUCCESS",
+          "strategies_registered": 11,
+          "categories": [
+            "traditional",
+            "unconventional"
+          ],
+          "strategy_types": {
+            "traditional": 5,
+            "unconventional": 6
+          }
+        },
+        "test_production_runner": {
+          "status": "SUCCESS",
+          "system_health": "excellent",
+          "components_initialized": 3,
+          "total_components": 3
+        },
+        "test_mathematical_robustness": {
+          "status": "SUCCESS",
+          "robustness_tests": {
+            "numerical_stability": "SUCCESS",
+            "correlation_matrix": "SUCCESS: Valid correlation matrix (min eigenvalue: 5.76e-05)",
+            "optimization_convergence": "SUCCESS: Converged to optimum"
+          }
+        },
+        "test_end_to_end_integration": {
+          "status": "SUCCESS",
+          "message": "End-to-end integration successful",
+          "components_tested": [
+            "ComprehensiveAnalyzer",
+            "UnconventionalAlphaGenerator",
+            "ParticleSwarmOptimizer",
+            "HMMRegimeDetector"
+          ],
+          "assets_processed": 2,
+          "data_points": 200
+        }
+      },
+      "test_time_seconds": 9.274588823318481,
+      "components_tested": [
+        "imports",
+        "strategies"
+      ],
+      "status": "success"
+    }
+  },
+  "performance_metrics": {
+    "rust": {
+      "signals_processed": 0,
+      "orders_submitted": 0,
+      "avg_signal_latency_us": 0,
+      "avg_order_latency_us": 0
+    },
+    "comparison": {
+      "rust": {
+        "latency_seconds": 4.887580871582031e-05,
+        "signals": 0,
+        "throughput": 409200.39024390245
+      }
+    }
+  },
+  "errors": [
+    {
+      "message": "Go binary not found, trying to build...",
+      "error": null,
+      "timestamp": "2025-10-29 23:43:58.990163",
+      "traceback": "NoneType: None\n"
+    },
+    {
+      "message": "C++ engine not available",
+      "error": "cannot import name 'QuantTradingEngine' from 'research.cpp_integration' (/Users/jadenfix/fghjk/research/cpp_integration.py)",
+      "timestamp": "2025-10-29 23:43:58.997100",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/jadenfix/fghjk/e2e_test_all_engines.py\", line 200, in test_cpp_engine\n    from research.cpp_integration import QuantTradingEngine\nImportError: cannot import name 'QuantTradingEngine' from 'research.cpp_integration' (/Users/jadenfix/fghjk/research/cpp_integration.py)\n"
+    }
+  ],
+  "recommendations": [
+    "2 engines are working correctly.",
+    "Rust engine is available - recommended for production use.",
+    "Found 2 errors during testing. Check logs for details."
+  ]
+}
