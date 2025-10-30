@@ -27,3 +27,7 @@ logs/
 # Temporary files
 *.tmp
 *.temp
+
+# Framework validation reports
+framework_validation_report_*.json
+framework_validation_reports/
