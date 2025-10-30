@@ -324,6 +324,54 @@ class CrossSectionalMomentumStrategy(BaseStrategy):
 
         return signal_dataframes
 
+    def generate_signals(self, price_data_dict, current_date):
+        """
+        Generate trading signals based on cross-sectional momentum
+
+        Args:
+            price_data_dict (dict): Dictionary with symbols as keys and price DataFrames as values
+            current_date (pd.Timestamp): Current date for signal generation
+
+        Returns:
+            dict: Trading signals for each asset
+        """
+        # Calculate cross-sectional ranks
+        momentum_ranks = self.calculate_cross_sectional_ranks(price_data_dict, current_date)
+
+        if not momentum_ranks:
+            return {symbol: 0 for symbol in price_data_dict.keys()}
+
+        # Sort by momentum rank
+        sorted_assets = sorted(momentum_ranks.items(), key=lambda x: x[1], reverse=True)
+
+        # Select top and bottom performers
+        num_positions = max(1, len(sorted_assets) // 4)  # Top/bottom quartile
+
+        signals = {}
+        for symbol in price_data_dict.keys():
+            if symbol in momentum_ranks:
+                rank = momentum_ranks[symbol]
+                # Long top performers, short bottom performers
+                if rank <= num_positions:  # Top performers
+                    signals[symbol] = 1
+                elif rank >= len(sorted_assets) - num_positions:  # Bottom performers
+                    signals[symbol] = -1
+                else:
+                    signals[symbol] = 0
+            else:
+                signals[symbol] = 0
+
+        # Convert signals to DataFrames as expected by the algorithm
+        signal_dataframes = {}
+        for symbol, signal in signals.items():
+            if symbol in price_data_dict:
+                data = price_data_dict[symbol]
+                signal_df = pd.DataFrame({'signal': [0] * len(data)}, index=data.index)
+                signal_df.loc[current_date, 'signal'] = signal
+                signal_dataframes[symbol] = signal_df
+
+        return signal_dataframes
+
 
 class VolatilityRegimeStrategy(BaseStrategy):
     """Volatility regime switching strategy based on statistical process control"""

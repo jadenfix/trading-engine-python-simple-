@@ -266,7 +266,7 @@ class CrossMarketAnalyzer:
         lead_lag = self.analyze_lead_lag_relationships(current_date)
 
         # Enhance signals based on cross-market relationships
-        for symbol in enhanced_signals.keys():
+        for symbol in list(enhanced_signals.keys()):
             if symbol in self.equity_data:
                 signal_enhancements = []
 

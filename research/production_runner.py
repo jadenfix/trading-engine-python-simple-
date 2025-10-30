@@ -193,7 +193,7 @@ class ProductionRunner:
         # Store results
         self.execution_results = results
 
-        logger.info(".2f"
+        logger.info(f"Analysis completed in {results['execution_info']['duration_seconds']:.2f} seconds")
         # Export results if configured
         if analysis_config.get('export_results', True):
             self._export_results(results, analysis_config)
