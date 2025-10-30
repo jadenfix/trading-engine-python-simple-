@@ -196,7 +196,7 @@ class RustTradingEngine:
 
         else:
             # Use Python fallback
-            result = self._engine.process_market_data(market_data, check_risk)
+            result = self._engine.process_market_data(market_data)
 
             # Convert to unified format
             signals = [Signal(**sig.__dict__) for sig in result.signals] if hasattr(result, 'signals') else []

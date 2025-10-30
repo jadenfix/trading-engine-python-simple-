@@ -231,14 +231,12 @@ def print_results(results: Dict[str, Dict[str, Any]]):
         cpp_time = results['C++']['avg_time_seconds']
         rust_time = results['Rust']['avg_time_seconds']
 
-        print("
-PERFORMANCE RATIOS:")
+        print("\nPERFORMANCE RATIOS:")
         print(".1f")
         print(".1f")
         print(".1f")
 
-        print("
-THROUGHPUT RATIOS:")
+        print("\nTHROUGHPUT RATIOS:")
         python_throughput = results['Python']['throughput_ticks_per_second']
         cpp_throughput = results['C++']['throughput_ticks_per_second']
         rust_throughput = results['Rust']['throughput_ticks_per_second']
